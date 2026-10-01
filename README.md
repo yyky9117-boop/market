@@ -1,6 +1,6 @@
 # AI 电商热点营销工作台
 
-轻量 Next.js Demo。LLM 通过服务端 OpenAI Compatible 接口封装，新闻搜索通过独立 `searchNews()` 适配器接入 Tavily。缺少新闻 Key 时使用演示新闻继续分析；没有完整模型配置时使用纯 Mock 模式。
+轻量 Next.js Demo。LLM 通过服务端 OpenAI Compatible 接口封装，新闻搜索通过独立 `searchNews()` 适配器接入 Tavily。系统会把同一热点和商品整理成微博、小红书图文和短视频脚本。缺少新闻 Key 时使用演示新闻继续分析；没有完整模型配置时使用纯 Mock 模式。
 
 ## 本地运行
 
@@ -11,7 +11,7 @@ pnpm install
 pnpm dev
 ```
 
-打开 `http://localhost:3000`。页面会请求 `POST /api/generate`，普通热点由本地 Mock 数据返回三条同结构结果；输入“地震”“洪水”“事故”等关键词，可体验高风险 Gate，卡片只展示潜在需求和商品，不生成文案。
+打开 `http://localhost:3000`。页面会请求 `POST /api/generate`，普通热点由本地 Mock 数据返回三条完整的平台内容；输入“地震”“洪水”“事故”等关键词，可体验高风险 Gate，输入“无商品匹配”可体验商品未命中的状态。高风险或无商品结果不会生成平台内容。
 
 ## 导入商品表
 
@@ -43,5 +43,6 @@ Tavily 当前免费方案每月包含 1,000 API credits，无需信用卡；具�
 - Phase 3：OpenAI Compatible LLM、集中 Prompt、商品匹配、文案数据白名单过滤和高风险 Gate。
 - Phase 4：Tavily 新闻搜索适配、最多三条新闻映射、超时处理和 Mock 回退。
 - Phase 5：结果状态与失败原因提示、分析中顶部模式状态优化。
+- V1.2：微博、小红书和短视频内容生成、独立平台状态与复制、Mock 平台内容。
 
 API 凭据只会在服务端环境中配置。`.env.example` 当前仅记录后续配置项。

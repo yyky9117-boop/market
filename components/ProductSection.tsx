@@ -18,7 +18,7 @@ export default function ProductSection({ product }: { product: Product | null })
           </div>
         </div>
         <p className="product-detail">{product.detail}</p>
-      </> : <p className="product-detail">暂未匹配到合适商品。</p>}
+      </> : <p className="product-detail">当前商品库暂无适合该消费场景的商品。</p>}
     </section>
   );
 }

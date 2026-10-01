@@ -12,6 +12,7 @@ function findProduct(subcategory: string): Product {
 
 function createItem(
   id: string,
+  event: string,
   title: string,
   brief: string,
   source: string,
@@ -42,9 +43,37 @@ function createItem(
       reason,
     },
     product,
-    copy: safe
-      ? { headline, content, marketingAngle, hashtags }
-      : null,
+    platformContents: safe ? {
+      weibo: {
+        title: headline,
+        content,
+        hashtags,
+      },
+      xiaohongshu: {
+        title: `${consumerNeed}怎么准备？从一个小场景开始`,
+        content: `围绕${event}做准备时，可以先想想自己最常遇到的场景：${consumerNeed}。\n\n${product.name}：${product.detail}\n\n把真正用得上的东西提前安排好，行程会更从容。具体信息可以查看商品详情。`,
+        tags: [event, consumerNeed, "生活方式", "出行准备"],
+        coverText: `${consumerNeed}准备思路`,
+        imagePrompt: `一张自然简约的小红书生活方式摄影。主体为${product.name}，放在与${event}相关的真实生活场景中；采用干净留白构图、柔和自然光和轻松日常氛围，商品以真实包装自然融入画面，不添加促销文字，不展示任何经营数据。`,
+      },
+      douyin: {
+        title: `${event}场景下的${consumerNeed}准备`,
+        hook: `${event}的安排里，有一件小事可以提前准备：${consumerNeed}。`,
+        scenes: [
+          { shot: 1, visual: `镜头展示${event}相关的行程或生活场景，再切到尚未整理的随身物品。`, voiceover: `${event}相关安排开始之前，可以先看看自己会遇到什么消费场景。` },
+          { shot: 2, visual: `在桌面或出行准备区放入${product.name}，镜头带到商品详情可确认的信息。`, voiceover: `如果需要${consumerNeed}，可以按实际需要了解这款商品的信息。` },
+          { shot: 3, visual: `收好物品后展示整洁的出行准备或日常场景，最后回到商品与清单。`, voiceover: `把适合自己的东西提前安排好，准备起来更有条理。` },
+        ],
+        cta: `你会为${event}提前准备什么？欢迎评论聊聊。`,
+      },
+    } : {
+      weibo: null,
+      xiaohongshu: null,
+      douyin: null,
+    },
+    platformStatuses: safe
+      ? { weibo: "success", xiaohongshu: "success", douyin: "success" }
+      : { weibo: "not_generated", xiaohongshu: "not_generated", douyin: "not_generated" },
   };
 }
 
@@ -52,8 +81,33 @@ export function getMockResults(query: string): GenerateResultItem[] {
   const highRisk = /地震|灾害|洪水|事故|伤亡|火灾|台风|泥石流/.test(query);
   const event = query.trim();
 
+  if (/无商品匹配|无匹配商品|商品未匹配/.test(query)) {
+    return [{
+      id: "1",
+      news: {
+        title: `${event}相关热点讨论`,
+        brief: `Mock 模式下用于演示无商品匹配状态的${event}新闻摘要。`,
+        source: "Mock 演示 · 状态示例",
+        url: "",
+      },
+      analysis: {
+        marketingSafe: true,
+        riskLevel: "low",
+        riskReason: "",
+        consumerNeed: "当前商品库中暂无对应需求商品",
+        productKeyword: "未匹配商品",
+        reason: "该示例用于演示商品库没有相关商品时的状态。",
+      },
+      product: null,
+      platformContents: { weibo: null, xiaohongshu: null, douyin: null },
+      platformStatuses: { weibo: "not_generated", xiaohongshu: "not_generated", douyin: "not_generated" },
+      failureType: "product",
+    }];
+  }
+
   const first = createItem(
     "1",
+    event,
     highRisk
       ? `${event}相关情况持续受到关注`
       : `${event}热度上升，出行与生活消费场景增加`,
@@ -76,6 +130,7 @@ export function getMockResults(query: string): GenerateResultItem[] {
 
   const second = createItem(
     "2",
+    event,
     `${event}带动户外休闲讨论升温`,
     `天气与假期话题让更多人开始规划户外休闲时间，轻便、易携带的途中补给受到关注。`,
     "城市生活观察",
@@ -92,6 +147,7 @@ export function getMockResults(query: string): GenerateResultItem[] {
 
   const third = createItem(
     "3",
+    event,
     `${event}相关生活消费话题持续发酵`,
     `热点讨论也带动居家与日常备货话题，方便快捷的餐食选择获得不少关注。`,
     "消费趋势简报",

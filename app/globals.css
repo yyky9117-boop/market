@@ -88,6 +88,28 @@ button, input { font: inherit; }
 .copy-section { flex: 1; background: #fff; }
 .copy-headline { margin: 0 0 7px; color: #374635; font-size: 12px; font-weight: 650; line-height: 1.6; }
 .copy-content { margin: 0; color: #727b70; font-size: 10px; line-height: 1.8; }
+.platform-tabs { display: flex; gap: 5px; padding: 3px; border: 1px solid #ecefe9; border-radius: 10px; background: #f8f9f6; }
+.platform-tab { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 7px; padding: 8px 5px; background: transparent; color: #7d867b; font-size: 10px; cursor: pointer; }
+.platform-tab.active { background: white; color: #386b4c; box-shadow: 0 1px 4px rgba(33,46,33,.08); font-weight: 650; }
+.platform-status { color: #829080; font-size: 8px; font-weight: 400; }
+.platform-status.failed { color: #9a7862; }
+.platform-panel { min-height: 126px; padding-top: 14px; }
+.platform-actions { display: flex; gap: 8px; margin-top: 12px; }
+.platform-extra { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin-top: 13px; border-radius: 8px; padding: 9px; background: #f7f8f5; color: #81897d; font-size: 9px; }
+.platform-extra strong { flex: 1; color: #465342; font-size: 10px; font-weight: 600; }
+.platform-extra .copy-button { padding: 5px 7px; font-size: 9px; }
+.image-prompt { margin-top: 10px; color: #758073; font-size: 9px; line-height: 1.7; }
+.image-prompt summary { color: #55765b; cursor: pointer; }
+.image-prompt p { margin: 8px 0; }
+.platform-empty { display: grid; gap: 6px; color: #838b80; font-size: 10px; line-height: 1.7; }
+.platform-empty strong { color: #786b46; font-size: 10px; font-weight: 600; }
+.script-hook, .script-cta { margin-bottom: 10px; border-radius: 8px; padding: 9px; background: #f7f8f5; color: #53634f; font-size: 10px; line-height: 1.7; }
+.script-hook span, .script-cta span { display: block; margin-bottom: 3px; color: #8b9388; font-size: 8px; }
+.script-scene { margin: 8px 0; border-left: 2px solid #dfe9dd; padding: 2px 0 2px 9px; color: #737d70; font-size: 9px; line-height: 1.7; }
+.script-scene > strong { color: #4f7054; font-size: 9px; }
+.script-scene p { margin: 3px 0; }
+.script-scene p span { display: inline-block; width: 29px; color: #9aa096; }
+.script-cta { margin: 10px 0 0; background: #f8faf6; }
 .hashtags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
 .hashtag { color: #64816a; font-size: 9px; }
 .card-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: auto; padding: 12px 17px; background: #fcfcfb; }

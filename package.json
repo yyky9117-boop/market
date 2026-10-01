@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "eslint .",
     "products:convert": "node --experimental-strip-types scripts/convertProducts.ts"
   },
   "dependencies": {
@@ -19,6 +20,8 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.7",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.8.0"
   }

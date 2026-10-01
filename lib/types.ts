@@ -39,21 +39,59 @@ export interface Product {
   sourceFields?: Array<{ column: number; header: string; value: unknown }>;
 }
 
-export interface MarketingCopy {
-  headline: string;
+export interface WeiboContent {
+  title: string;
   content: string;
-  marketingAngle: string;
   hashtags: string[];
 }
+
+export interface XiaohongshuContent {
+  title: string;
+  content: string;
+  tags: string[];
+  coverText: string;
+  imagePrompt: string;
+}
+
+export interface DouyinScene {
+  shot: number;
+  visual: string;
+  voiceover: string;
+}
+
+export interface DouyinContent {
+  title: string;
+  hook: string;
+  scenes: DouyinScene[];
+  cta: string;
+}
+
+export interface PlatformContentByKey {
+  weibo: WeiboContent;
+  xiaohongshu: XiaohongshuContent;
+  douyin: DouyinContent;
+}
+
+export type PlatformKey = keyof PlatformContentByKey;
+
+export type PlatformContents = {
+  [K in PlatformKey]: PlatformContentByKey[K] | null;
+};
+
+export type PlatformStatus = "loading" | "success" | "failed" | "not_generated";
+export type PlatformStatuses = Record<PlatformKey, PlatformStatus>;
+export type PlatformErrors = Partial<Record<PlatformKey, string>>;
 
 export interface GenerateResultItem {
   id: string;
   news: NewsItem;
   analysis: NewsAnalysis;
   product: Product | null;
-  copy: MarketingCopy | null;
+  platformContents: PlatformContents;
+  platformStatuses: PlatformStatuses;
+  platformErrors?: PlatformErrors;
   error?: string;
-  failureType?: "analysis" | "product" | "copy";
+  failureType?: "analysis" | "product";
 }
 
 export interface GenerateResponse {
@@ -70,5 +108,5 @@ export const WORKFLOW_STEPS = [
   "判断营销风险",
   "分析商品需求",
   "匹配适合商品",
-  "生成营销文案",
+  "生成多平台内容",
 ] as const;

@@ -1,4 +1,4 @@
-import type { NewsItem, SanitizedProduct } from "@/lib/types";
+import type { NewsAnalysis, NewsItem, SanitizedProduct } from "@/lib/types";
 
 export function buildNewsAnalysisPrompt(news: NewsItem): string {
   return `# 角色
@@ -272,4 +272,104 @@ ${JSON.stringify(product, null, 2)}
 
 不要输出 JSON 之外的解释。
 `;
+}
+
+export interface PlatformContentContext {
+  news: NewsItem;
+  analysis: NewsAnalysis;
+  product: SanitizedProduct;
+}
+
+export const newsAnalysisPrompt = buildNewsAnalysisPrompt;
+
+function sharedPlatformContext(context: PlatformContentContext): string {
+  return `# 新闻信息
+
+标题：${context.news.title}
+摘要：${context.news.brief}
+
+# 消费洞察
+
+消费需求：${context.analysis.consumerNeed}
+关联原因：${context.analysis.reason}
+
+# 消费者可见商品信息
+
+${JSON.stringify(context.product, null, 2)}
+
+# 通用要求
+
+- 新闻与商品必须存在自然、真实的联系；关联牵强时，使用克制的场景表达，不要夸大热点。
+- 只使用输入提供的商品名称、售价和详情，不得编造规格、功能、优惠、销量、认证或使用效果。
+- 不得声称自己亲身使用、购买或体验过商品。
+- 禁止出现 SKU、成本价、毛利率、退货率、月销售额、内部运营指标和具体库存量。
+- 只输出要求的 JSON，不要输出额外解释。`;
+}
+
+export function weiboPrompt(context: PlatformContentContext): string {
+  return `# 角色
+
+你是一名擅长热点传播的微博电商内容编辑。
+
+# 任务
+
+结合热点、消费场景与商品真实信息，写一则短小、有节奏、有话题感的微博营销内容。热点自然融入，商品不能硬塞，不要机械罗列参数。
+
+${sharedPlatformContext(context)}
+
+# 输出要求
+
+- title 简短、有传播感。
+- content 精炼、适合快速阅读，控制在约 80–180 个汉字。
+- hashtags 输出 2–4 个以 # 开头的话题标签。
+
+# 输出 JSON
+
+{"title":"","content":"","hashtags":["#话题1","#话题2"]}`;
+}
+
+export function xiaohongshuPrompt(context: PlatformContentContext): string {
+  return `# 角色
+
+你是一名熟悉生活方式图文表达的小红书内容编辑。
+
+# 任务
+
+生成自然、有场景感的图文种草笔记。内容应包含场景引入、需求或准备思路、商品自然融入和轻量 CTA，像分享而非商品详情页。不要伪造个人亲身体验。
+
+${sharedPlatformContext(context)}
+
+# 标题与配图要求
+
+- title 有具体场景和吸引力，但不要标题党、绝对化或夸张承诺。
+- tags 输出 3–6 个小红书风格标签，可不带 #。
+- coverText 简洁醒目，建议 6–16 个汉字，适合封面排版。
+- imagePrompt 需写明主体、场景、构图、光线、氛围、风格和商品展示方式；整体为自然、真实、简约的生活方式摄影感，商品自然融入画面。不得包含内部经营数据。
+
+# 输出 JSON
+
+{"title":"","content":"","tags":["标签1","标签2"],"coverText":"","imagePrompt":""}`;
+}
+
+export function douyinPrompt(context: PlatformContentContext): string {
+  return `# 角色
+
+你是一名擅长短视频叙事和电商内容策划的编导。
+
+# 任务
+
+围绕热点和真实消费场景，写一份可拍摄的短视频脚本。短视频风格偏抖音，但表达真实、克制。
+
+${sharedPlatformContext(context)}
+
+# 脚本要求
+
+- title 清楚说明视频主题。
+- hook 是开头 3 秒的钩子，说明观众继续看的理由，不得虚假夸张。
+- scenes 输出 3–5 个镜头。每个镜头必须包含 shot（从 1 开始的整数）、visual（具体可拍摄的画面描述）和 voiceover（对应口播）。
+- CTA 符合内容语境，可引导评论、收藏、分享或了解详情，不要一律催促下单。
+
+# 输出 JSON
+
+{"title":"","hook":"","scenes":[{"shot":1,"visual":"","voiceover":""},{"shot":2,"visual":"","voiceover":""},{"shot":3,"visual":"","voiceover":""}],"cta":""}`;
 }

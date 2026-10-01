@@ -1,5 +1,11 @@
-import type { NewsAnalysis, NewsItem, MarketingCopy, SanitizedProduct } from "@/lib/types";
-import { buildMarketingCopyPrompt, buildNewsAnalysisPrompt } from "@/lib/prompts";
+import type { NewsAnalysis, NewsItem, PlatformContentByKey, PlatformKey } from "@/lib/types";
+import {
+  douyinPrompt,
+  newsAnalysisPrompt,
+  type PlatformContentContext,
+  weiboPrompt,
+  xiaohongshuPrompt,
+} from "@/lib/prompts";
 
 interface ChatMessage {
   role: "user";
@@ -91,7 +97,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 export async function analyzeNews(news: NewsItem): Promise<NewsAnalysis> {
-  const result = await callLLM<unknown>(buildNewsAnalysisPrompt(news));
+  const result = await callLLM<unknown>(newsAnalysisPrompt(news));
   if (!isRecord(result)) throw new Error("新闻分析结果格式不正确。");
   const { marketingSafe, riskLevel, riskReason, consumerNeed, productKeyword, reason } = result;
   if (typeof marketingSafe !== "boolean" || !["low", "medium", "high"].includes(String(riskLevel))) {
@@ -110,20 +116,61 @@ export async function analyzeNews(news: NewsItem): Promise<NewsAnalysis> {
   };
 }
 
-export async function generateMarketingCopy(
-  news: NewsItem,
-  consumerNeed: string,
-  product: SanitizedProduct,
-): Promise<MarketingCopy> {
-  const result = await callLLM<unknown>(buildMarketingCopyPrompt(news, consumerNeed, product));
-  if (!isRecord(result)) throw new Error("营销文案结果格式不正确。");
-  const { headline, content, marketingAngle, hashtags } = result;
-  if (
-    typeof headline !== "string" || typeof content !== "string" ||
-    typeof marketingAngle !== "string" || !Array.isArray(hashtags) ||
-    !hashtags.every((tag) => typeof tag === "string")
-  ) {
-    throw new Error("营销文案结果字段不完整。");
+export async function generatePlatformContent<K extends PlatformKey>(
+  platform: K,
+  context: PlatformContentContext,
+): Promise<PlatformContentByKey[K]> {
+  const prompt = platform === "weibo"
+    ? weiboPrompt(context)
+    : platform === "xiaohongshu"
+      ? xiaohongshuPrompt(context)
+      : douyinPrompt(context);
+  const result = await callLLM<unknown>(prompt);
+  if (!isRecord(result)) throw new Error(`${platform} 内容格式不正确。`);
+
+  if (platform === "weibo") {
+    const { title, content, hashtags } = result;
+    if (typeof title !== "string" || !title.trim() || typeof content !== "string" || !content.trim() ||
+      !Array.isArray(hashtags) || hashtags.length < 2 || hashtags.length > 4 ||
+      !hashtags.every((tag) => typeof tag === "string" && tag.trim())) {
+      throw new Error("微博内容缺少有效字段。");
+    }
+    return { title: title.trim(), content: content.trim(), hashtags: (hashtags as string[]).map((tag) => tag.trim()) } as PlatformContentByKey[K];
   }
-  return { headline, content, marketingAngle, hashtags };
+
+  if (platform === "xiaohongshu") {
+    const { title, content, tags, coverText, imagePrompt } = result;
+    if (typeof title !== "string" || !title.trim() || typeof content !== "string" || !content.trim() ||
+      !Array.isArray(tags) || tags.length < 3 || tags.length > 6 ||
+      !tags.every((tag) => typeof tag === "string" && tag.trim()) ||
+      typeof coverText !== "string" || !coverText.trim() || typeof imagePrompt !== "string" || !imagePrompt.trim()) {
+      throw new Error("小红书内容缺少有效字段。");
+    }
+    return {
+      title: title.trim(),
+      content: content.trim(),
+      tags: (tags as string[]).map((tag) => tag.trim()),
+      coverText: coverText.trim(),
+      imagePrompt: imagePrompt.trim(),
+    } as PlatformContentByKey[K];
+  }
+
+  const { title, hook, scenes, cta } = result;
+  if (typeof title !== "string" || !title.trim() || typeof hook !== "string" || !hook.trim() ||
+    typeof cta !== "string" || !cta.trim() || !Array.isArray(scenes) || scenes.length < 3 || scenes.length > 5 ||
+    !scenes.every((scene, index) => isRecord(scene) && scene.shot === index + 1 &&
+      typeof scene.visual === "string" && scene.visual.trim() &&
+      typeof scene.voiceover === "string" && scene.voiceover.trim())) {
+    throw new Error("短视频脚本缺少有效字段。");
+  }
+  return {
+    title: title.trim(),
+    hook: hook.trim(),
+    scenes: scenes.map((scene) => ({
+      shot: scene.shot as number,
+      visual: (scene as Record<string, unknown>).visual as string,
+      voiceover: (scene as Record<string, unknown>).voiceover as string,
+    })),
+    cta: cta.trim(),
+  } as PlatformContentByKey[K];
 }

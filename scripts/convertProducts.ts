@@ -34,6 +34,13 @@ function normalizeHeader(value: string): string {
   return value.trim().replace(/[\s_·-]/g, "").toLowerCase();
 }
 
+function rowValues(row: ExcelJS.Row): ExcelJS.CellValue[] {
+  const values: unknown = row.values;
+  if (Array.isArray(values)) return values as ExcelJS.CellValue[];
+  if (typeof values === "object" && values !== null) return Object.values(values) as ExcelJS.CellValue[];
+  return [];
+}
+
 function toJsonValue(value: ExcelJS.CellValue): unknown {
   if (value === null || value === undefined) return null;
   if (value instanceof Date) return value.toISOString();
@@ -90,7 +97,7 @@ async function main() {
   let worksheet: ExcelJS.Worksheet | undefined;
   for (const candidate of worksheets) {
     const firstPopulatedRow = candidate.getRows(1, candidate.rowCount)?.find((row) =>
-      row.values.some((value) => value !== null && value !== undefined && String(value).trim() !== ""),
+      rowValues(row).some((value) => value !== null && value !== undefined && String(value).trim() !== ""),
     );
     if (firstPopulatedRow) {
       worksheet = candidate;
@@ -100,7 +107,7 @@ async function main() {
   }
   if (!worksheet || !headerRow) throw new Error("工作簿中没有可读取的商品数据行。");
 
-  const headers = headerRow.values
+  const headers = rowValues(headerRow)
     .slice(1)
     .map((value) => textValue(toJsonValue(value as ExcelJS.CellValue)));
   const normalizedHeaders = headers.map(normalizeHeader);
