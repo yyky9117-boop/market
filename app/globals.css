@@ -121,7 +121,23 @@ button, input { font: inherit; }
 .copy-button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #dfe7de; border-radius: 8px; padding: 7px 10px; background: white; color: #4f7054; font-size: 10px; cursor: pointer; }
 .copy-button:hover { border-color: #b8cfb8; background: #f7faf6; }
 .warning-box { margin-top: 14px; border: 1px solid #eee7d8; border-radius: 9px; padding: 11px; background: #fcfaf5; color: #817552; font-size: 10px; line-height: 1.65; }
-.warning-box strong { display: block; margin-bottom: 4px; color: #786b46; font-size: 10px; }
+  .warning-box strong { display: block; margin-bottom: 4px; color: #786b46; font-size: 10px; }
+  .opportunity-summary { display: grid; gap: 6px; margin-top: 12px; border: 1px solid #e8eee5; border-radius: 9px; padding: 10px; background: #f7faf6; color: #71806f; font-size: 10px; line-height: 1.65; }
+  .opportunity-summary strong { color: #507354; font-size: 10px; }
+  .opportunity-summary.medium { border-color: #eee8d9; background: #fcfaf5; }
+  .opportunity-summary.medium strong { color: #89774e; }
+  .opportunity-summary.weak { border-color: #eee8d9; background: #fcfaf5; color: #817552; }
+  .opportunity-summary.weak strong { color: #786b46; }
+  .relationship-path { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+  .relationship-node { display: inline-flex; align-items: center; gap: 5px; border-radius: 99px; padding: 3px 7px; background: #edf2ea; color: #5d715b; font-size: 9px; }
+  .relationship-arrow { color: #9aa497; }
+  .opportunity-summary.weak .relationship-node { background: #f2efe7; color: #796f57; }
+  .strategy-details { margin: 0 18px; border-bottom: 1px solid #f0f1ee; padding: 12px 0; color: #687465; font-size: 10px; }
+  .strategy-details summary { color: #55765b; font-weight: 600; cursor: pointer; }
+  .strategy-details dl { display: grid; gap: 8px; margin: 12px 0 2px; }
+  .strategy-details dl > div { display: grid; grid-template-columns: 68px 1fr; gap: 8px; line-height: 1.65; }
+  .strategy-details dt { color: #929b8f; }
+  .strategy-details dd { margin: 0; color: #4e5b4b; }
 .stopped { color: #988b68; font-size: 10px; }
 .copy-error { color: #858c80; font-size: 10px; line-height: 1.65; }
 .error-banner { max-width: 760px; margin: 12px auto; border: 1px solid #efdfd6; border-radius: 10px; padding: 11px 14px; background: #fffaf7; color: #8f6652; text-align: left; font-size: 12px; }

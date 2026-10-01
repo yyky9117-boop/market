@@ -11,9 +11,33 @@ export interface NewsAnalysis {
   marketingSafe: boolean;
   riskLevel: RiskLevel;
   riskReason: string;
+  sensitiveTopic: boolean;
+  sensitiveType: string | null;
+  opportunity: string;
+  scene: string;
   consumerNeed: string;
-  productKeyword: string;
+  productKeyword: string[];
   reason: string;
+}
+
+export type FitLevel = "strong" | "medium" | "weak";
+
+export interface MarketingOpportunityEvaluation {
+  productFitScore: number;
+  fitLevel: FitLevel;
+  shouldGenerate: boolean;
+  fitReason: string;
+  relationshipPath: string[];
+}
+
+export interface ContentStrategy {
+  audience: string;
+  scene: string;
+  consumerPainPoint: string;
+  productRole: string;
+  contentAngle: string;
+  coreMessage: string;
+  toneHint: string;
 }
 
 export interface SanitizedProduct {
@@ -89,11 +113,13 @@ export interface GenerateResultItem {
   news: NewsItem;
   analysis: NewsAnalysis;
   product: Product | null;
+  opportunityEvaluation: MarketingOpportunityEvaluation | null;
+  contentStrategy: ContentStrategy | null;
   platformContents: PlatformContents;
   platformStatuses: PlatformStatuses;
   platformErrors?: PlatformErrors;
   error?: string;
-  failureType?: "analysis" | "product";
+  failureType?: "analysis" | "product" | "opportunity" | "strategy";
 }
 
 export interface GenerateResponse {
@@ -110,5 +136,7 @@ export const WORKFLOW_STEPS = [
   "判断营销风险",
   "分析商品需求",
   "匹配适合商品",
+  "评估热点与商品关联",
+  "规划统一内容策略",
   "生成多平台内容",
 ] as const;

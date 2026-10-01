@@ -16,13 +16,15 @@ export default function CopySection({
   safe,
   productAvailable,
   failureType,
+  opportunityRejected,
 }: {
   contents: PlatformContents;
   statuses: PlatformStatuses;
   errors?: PlatformErrors;
   safe: boolean;
   productAvailable: boolean;
-  failureType?: "analysis" | "product";
+  failureType?: "analysis" | "product" | "opportunity" | "strategy";
+  opportunityRejected: boolean;
 }) {
   const [active, setActive] = useState<PlatformKey>("weibo");
   const [copied, setCopied] = useState("");
@@ -73,10 +75,14 @@ export default function CopySection({
         {status === "loading" ? <p className="copy-error">正在生成该平台内容…</p>
           : status === "failed" ? <p className="copy-error">{errors[active] ?? "生成失败，请稍后重试。"}</p>
             : status === "not_generated" ? <div className="platform-empty">
-                {!safe || failureType === "analysis"
+              {!safe || failureType === "analysis"
                   ? <><strong>不建议商业营销</strong><span>热点风险较高或分析未完成，已停止生成所有平台内容。</span></>
                   : !productAvailable || failureType === "product"
                     ? <><strong>当前商品库暂无适合该消费场景的商品</strong><span>已跳过平台内容生成。</span></>
+                    : opportunityRejected
+                      ? <><strong>不建议强行借势</strong><span>当前商品与热点之间关联较弱，已停止生成商业营销内容。</span></>
+                      : failureType === "opportunity" || failureType === "strategy"
+                        ? <><strong>营销策略暂不可用</strong><span>相关性评估或策略规划未完成，已安全暂停平台文案生成。请稍后重试。</span></>
                     : <><strong>平台内容未生成</strong><span>可重新分析后再试。</span></>}
               </div>
               : active === "weibo" && contents.weibo ? <>

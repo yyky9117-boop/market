@@ -26,6 +26,15 @@ function createItem(
   hashtags: string[],
   safe = true,
 ): GenerateResultItem {
+  const contentStrategy = safe ? {
+    audience: `关注${event}的消费者`,
+    scene: `${event}相关生活准备`,
+    consumerPainPoint: consumerNeed,
+    productRole: `为${consumerNeed}提供一个实际选择`,
+    contentAngle: marketingAngle,
+    coreMessage: `结合实际场景，提前安排${consumerNeed}`,
+    toneHint: "生活化、实用、克制",
+  } : null;
   return {
     id,
     news: {
@@ -38,11 +47,23 @@ function createItem(
       marketingSafe: safe,
       riskLevel: safe ? "low" : "high",
       riskReason: safe ? "" : "该热点涉及突发灾害，不适合开展商业借势。",
+      sensitiveTopic: false,
+      sensitiveType: null,
+      opportunity: `${consumerNeed}相关准备`,
+      scene: `${event}场景下的日常准备`,
       consumerNeed,
-      productKeyword,
+      productKeyword: [productKeyword],
       reason,
     },
     product,
+    opportunityEvaluation: safe ? {
+      productFitScore: 86,
+      fitLevel: "strong",
+      shouldGenerate: true,
+      fitReason: reason,
+      relationshipPath: [event, consumerNeed, product.subcategory],
+    } : null,
+    contentStrategy,
     platformContents: safe ? {
       weibo: {
         title: headline,
@@ -50,23 +71,23 @@ function createItem(
         hashtags,
       },
       xiaohongshu: {
-        contentAngle: "出行补给准备",
+        contentAngle: contentStrategy?.contentAngle ?? marketingAngle,
         title: `${consumerNeed}怎么准备？从一个小场景开始`,
-        hook: `${event}相关安排一多，容易顾着行程，却忘了路上最基础的${consumerNeed}。`,
-        content: `围绕${event}做准备时，可以先想想自己最常遇到的场景：${consumerNeed}。\n\n像随身补给这种小事，提前理一遍会更从容。${product.name}可以作为一个备选，${product.detail}\n\n具体要不要带、带多少，还是按自己的行程和需要来安排。你出门前最常检查哪一样？`,
+        hook: `${contentStrategy?.scene ?? event}时，可以先留意一个实际的小需求：${contentStrategy?.consumerPainPoint ?? consumerNeed}。`,
+        content: `${contentStrategy?.scene ?? event}中，${contentStrategy?.consumerPainPoint ?? consumerNeed}都值得按实际情况提前想一想。\n\n${product.name}可以作为一个选择，${product.detail}。${contentStrategy?.productRole ?? `如果需要${consumerNeed}，可以了解商品信息`}。\n\n是否需要准备，还是按自己的行程和需要来安排。你会提前检查哪些小事？`,
         tags: [event, consumerNeed, "生活方式", "出行准备"],
         coverText: `${consumerNeed}准备思路`,
         imagePrompt: `一张自然简约的小红书生活方式摄影。主体为${product.name}，放在与${event}相关的真实生活场景中；采用干净留白构图、柔和自然光和轻松日常氛围，商品以真实包装自然融入画面，不添加促销文字，不展示任何经营数据。`,
       },
       douyin: {
-        title: `${event}场景下的${consumerNeed}准备`,
-        hook: `${event}的安排里，有一件小事可以提前准备：${consumerNeed}。`,
+        title: `${contentStrategy?.scene ?? event}中的${consumerNeed}准备`,
+        hook: `${contentStrategy?.consumerPainPoint ?? consumerNeed}，可以结合${contentStrategy?.scene ?? event}提前检查。`,
         scenes: [
-          { shot: 1, visual: `镜头展示${event}相关的行程或生活场景，再切到尚未整理的随身物品。`, voiceover: `${event}相关安排开始之前，可以先看看自己会遇到什么消费场景。` },
-          { shot: 2, visual: `在桌面或出行准备区放入${product.name}，镜头带到商品详情可确认的信息。`, voiceover: `如果需要${consumerNeed}，可以按实际需要了解这款商品的信息。` },
+          { shot: 1, visual: `镜头展示${contentStrategy?.scene ?? event}，再带到与${consumerNeed}有关的真实生活细节。`, voiceover: `${contentStrategy?.scene ?? event}里，可以先留意${contentStrategy?.consumerPainPoint ?? consumerNeed}。` },
+          { shot: 2, visual: `展示${product.name}与相关使用场景，不添加商品详情之外的信息。`, voiceover: `${contentStrategy?.productRole ?? `如果需要${consumerNeed}，可以了解这款商品`}。` },
           { shot: 3, visual: `收好物品后展示整洁的出行准备或日常场景，最后回到商品与清单。`, voiceover: `把适合自己的东西提前安排好，准备起来更有条理。` },
         ],
-        cta: `你会为${event}提前准备什么？欢迎评论聊聊。`,
+        cta: `你在${contentStrategy?.scene ?? event}还会检查什么？欢迎聊聊。`,
       },
     } : {
       weibo: null,
@@ -96,15 +117,144 @@ export function getMockResults(query: string): GenerateResultItem[] {
         marketingSafe: true,
         riskLevel: "low",
         riskReason: "",
+        sensitiveTopic: false,
+        sensitiveType: null,
+        opportunity: "",
+        scene: `${event}热点讨论`,
         consumerNeed: "当前商品库中暂无对应需求商品",
-        productKeyword: "未匹配商品",
+        productKeyword: ["未匹配商品"],
         reason: "该示例用于演示商品库没有相关商品时的状态。",
       },
       product: null,
+      opportunityEvaluation: null,
+      contentStrategy: null,
       platformContents: { weibo: null, xiaohongshu: null, douyin: null },
       platformStatuses: { weibo: "not_generated", xiaohongshu: "not_generated", douyin: "not_generated" },
       failureType: "product",
     }];
+  }
+
+  if (/AI技术突破|人工智能技术突破|弱关联/.test(query)) {
+    const product = findProduct("方便食品");
+    return [{
+      id: "1",
+      news: {
+        title: `${event}引发讨论`,
+        brief: "技术进展受到关注，但新闻没有形成与普通食品直接相关的消费需求。",
+        source: "Mock 演示 · 弱关联判断",
+        url: "",
+      },
+      analysis: {
+        marketingSafe: true,
+        riskLevel: "low",
+        riskReason: "",
+        sensitiveTopic: false,
+        sensitiveType: null,
+        opportunity: "",
+        scene: "科技新闻讨论",
+        consumerNeed: "",
+        productKeyword: ["方便食品"],
+        reason: "该热点与普通食品之间没有明显消费需求联系。",
+      },
+      product,
+      opportunityEvaluation: {
+        productFitScore: 31,
+        fitLevel: "weak",
+        shouldGenerate: false,
+        fitReason: "科技进展没有自然产生食品需求，不建议强行借势营销。",
+        relationshipPath: ["AI 技术突破", "普通食品"],
+      },
+      contentStrategy: null,
+      platformContents: { weibo: null, xiaohongshu: null, douyin: null },
+      platformStatuses: { weibo: "not_generated", xiaohongshu: "not_generated", douyin: "not_generated" },
+    }];
+  }
+
+  if (/ADHD|儿童心理|儿童健康|抑郁|焦虑症/.test(query)) {
+    const product = findProduct("电池");
+    return [{
+      id: "1",
+      news: {
+        title: `${event}相关话题受到关注`,
+        brief: "该 Mock 案例用于确保儿童健康与心理话题不会成为普通商品的营销情绪入口。",
+        source: "Mock 演示 · 敏感话题",
+        url: "",
+      },
+      analysis: {
+        marketingSafe: true,
+        riskLevel: "medium",
+        riskReason: "",
+        sensitiveTopic: true,
+        sensitiveType: "child_health",
+        opportunity: "",
+        scene: "儿童健康与心理议题",
+        consumerNeed: "",
+        productKeyword: ["电池"],
+        reason: "严肃健康议题不应被转化为普通商品营销入口。",
+      },
+      product,
+      opportunityEvaluation: {
+        productFitScore: 24,
+        fitLevel: "weak",
+        shouldGenerate: false,
+        fitReason: "该关联依赖儿童健康或心理议题，不适合作为普通商品营销入口。",
+        relationshipPath: [event, "儿童心理", "家庭用品", "电池"],
+      },
+      contentStrategy: null,
+      platformContents: { weibo: null, xiaohongshu: null, douyin: null },
+      platformStatuses: { weibo: "not_generated", xiaohongshu: "not_generated", douyin: "not_generated" },
+    }];
+  }
+
+  if (/开学季.*电池|电池.*开学季/.test(query)) {
+    const product = findProduct("电池");
+    const result = createItem(
+      "1", "开学季", "开学准备别漏了常用小设备", "开学前整理用品时，也可以顺手检查闹钟、计算器等常用设备。", "Mock 演示 · 自然商品关联",
+      "学习设备检查", "电池", "开学准备中的设备检查与电池用途直接相关。", product,
+      "开学准备清单，也检查一下常用设备", "整理书本和文具时，也可以顺手看看闹钟、计算器等常用设备是否能正常使用。\n\n如果确实需要更换电池，按设备要求提前备好就行，不用临时到处找。", "开学前设备检查", ["#开学季", "#开学准备", "#生活小事"], true,
+    );
+    result.opportunityEvaluation = {
+      productFitScore: 82,
+      fitLevel: "strong",
+      shouldGenerate: true,
+      fitReason: "开学前检查闹钟、计算器等学习生活设备时，电池是直接相关的日常耗材。",
+      relationshipPath: ["开学准备", "学习设备检查", "电池"],
+    };
+    result.contentStrategy = {
+      audience: "有学龄儿童的家庭",
+      scene: "开学前整理学习和生活用品",
+      consumerPainPoint: "闹钟、计算器等常用设备临时没电",
+      productRole: "作为家庭常备耗材解决临时缺电",
+      contentAngle: "开学前容易被忽略的设备检查",
+      coreMessage: "开学准备不只是书本文具，常用设备也值得提前检查",
+      toneHint: "生活化、实用、不制造焦虑",
+    };
+    return [result];
+  }
+
+  if (/体育赛事|亚运会|足球赛|比赛/.test(query)) {
+    const result = createItem(
+      "1", "体育赛事", "观赛时刻，准备一点顺手的小零食", "赛事直播也带动居家观赛场景，适量准备方便分享的零食。", "Mock 演示 · 中关联场景",
+      "居家观赛时的零食分享", "坚果", "赛事带来居家观赛场景，零食适合观赛时分享，但不是赛事本身的直接需求。", findProduct("坚果"),
+      "观赛时刻，准备一点顺手的小零食", "看比赛时，很多人会约上家人朋友一起坐下来。准备一点方便分享的小零食，就能让观赛时光更轻松。", "居家观赛与零食分享", ["#体育赛事", "#居家观赛", "#零食分享"], true,
+    );
+    result.opportunityEvaluation = {
+      productFitScore: 76,
+      fitLevel: "medium",
+      shouldGenerate: true,
+      fitReason: "赛事直播带来居家观赛场景，零食适合观赛时分享，属于自然但非直接的消费关联。",
+      relationshipPath: ["体育赛事", "居家观赛", "坚果零食"],
+    };
+    result.contentStrategy = {
+      audience: "喜欢在家看赛事的消费者",
+      scene: "与家人朋友居家观赛",
+      consumerPainPoint: "观赛时想准备方便分享的小零食",
+      productRole: "作为观赛时的分享零食选择",
+      contentAngle: "居家观赛与零食分享",
+      coreMessage: "观赛零食按人数和喜好适量准备即可",
+      toneHint: "轻松、克制、不制造消费压力",
+    };
+    return [result];
   }
 
   const first = createItem(

@@ -16,9 +16,12 @@ function splitTerms(keyword: string): string[] {
   return [...terms];
 }
 
-export function matchProducts(keyword: string, products: Product[]): Product | null {
-  const normalizedKeyword = keyword.trim().toLocaleLowerCase();
-  const terms = splitTerms(keyword);
+export function matchProducts(keyword: string | string[], products: Product[]): Product | null {
+  const keywords = (Array.isArray(keyword) ? keyword : [keyword])
+    .map((item) => item.trim().toLocaleLowerCase())
+    .filter(Boolean);
+  const normalizedKeyword = keywords.join(" ");
+  const terms = [...new Set(keywords.flatMap(splitTerms))];
   if (!normalizedKeyword || products.length === 0) return null;
 
   const ranked = products
@@ -32,10 +35,12 @@ export function matchProducts(keyword: string, products: Product[]): Product | n
       };
       let score = 0;
 
-      if (fields.name.includes(normalizedKeyword)) score += 10;
-      if (fields.subcategory.includes(normalizedKeyword)) score += 9;
-      if (fields.category.includes(normalizedKeyword)) score += 7;
-      if (fields.detail.includes(normalizedKeyword)) score += 4;
+      for (const item of keywords) {
+        if (fields.name.includes(item)) score += 10;
+        if (fields.subcategory.includes(item)) score += 9;
+        if (fields.category.includes(item)) score += 7;
+        if (fields.detail.includes(item)) score += 4;
+      }
 
       for (const term of terms) {
         if (term.length < 2) continue;
