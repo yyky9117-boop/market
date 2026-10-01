@@ -1,0 +1,4102 @@
+[
+  {
+    "sku": "SKU001",
+    "category": "食品饮料",
+    "subcategory": "方便食品",
+    "name": "经典红烧牛肉方便面5连包",
+    "price": 14.9,
+    "cost": 9.2,
+    "margin": 0.383,
+    "monthlySales": 3250,
+    "monthlyRevenue": 48425,
+    "returnRate": 0.008,
+    "stock": 1860,
+    "rating": 4.7,
+    "detail": "经典红烧牛肉风味方便面，5袋组合装，面饼劲道，适合早餐、夜宵及家庭囤货。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU001"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "方便食品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "经典红烧牛肉方便面5连包"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 14.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 9.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.383
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 3250
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 48425
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.008
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1860
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "经典红烧牛肉风味方便面，5袋组合装，面饼劲道，适合早餐、夜宵及家庭囤货。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU002",
+    "category": "食品饮料",
+    "subcategory": "饮用水",
+    "name": "天然饮用水550ml×12",
+    "price": 18.9,
+    "cost": 12.3,
+    "margin": 0.349,
+    "monthlySales": 2860,
+    "monthlyRevenue": 54054,
+    "returnRate": 0.003,
+    "stock": 2240,
+    "rating": 4.8,
+    "detail": "550ml瓶装天然饮用水，共12瓶，适合家庭、办公室及户外日常饮用。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU002"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "饮用水"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "天然饮用水550ml×12"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 18.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 12.3
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.349
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2860
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 54054
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.003
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 2240
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "550ml瓶装天然饮用水，共12瓶，适合家庭、办公室及户外日常饮用。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU003",
+    "category": "食品饮料",
+    "subcategory": "牛奶",
+    "name": "纯牛奶250ml×12",
+    "price": 39.9,
+    "cost": 29.2,
+    "margin": 0.268,
+    "monthlySales": 1960,
+    "monthlyRevenue": 78204,
+    "returnRate": 0.009,
+    "stock": 980,
+    "rating": 4.8,
+    "detail": "250ml常温纯牛奶12盒装，口感醇厚，适合作为早餐及日常营养补充。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU003"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "牛奶"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "纯牛奶250ml×12"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 39.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 29.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.268
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1960
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 78204
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.009
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 980
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "250ml常温纯牛奶12盒装，口感醇厚，适合作为早餐及日常营养补充。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU004",
+    "category": "食品饮料",
+    "subcategory": "饼干",
+    "name": "黄油曲奇饼干400g",
+    "price": 22.9,
+    "cost": 13.8,
+    "margin": 0.397,
+    "monthlySales": 1480,
+    "monthlyRevenue": 33892,
+    "returnRate": 0.012,
+    "stock": 760,
+    "rating": 4.6,
+    "detail": "黄油风味曲奇饼干，酥脆香甜，400g家庭分享装，适合下午茶及休闲零食。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU004"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "饼干"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "黄油曲奇饼干400g"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 22.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 13.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.397
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1480
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 33892
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.012
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 760
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "黄油风味曲奇饼干，酥脆香甜，400g家庭分享装，适合下午茶及休闲零食。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU005",
+    "category": "食品饮料",
+    "subcategory": "膨化食品",
+    "name": "原味薯片90g",
+    "price": 8.9,
+    "cost": 4.8,
+    "margin": 0.461,
+    "monthlySales": 3520,
+    "monthlyRevenue": 31328,
+    "returnRate": 0.005,
+    "stock": 1980,
+    "rating": 4.7,
+    "detail": "原切马铃薯制作的经典原味薯片，口感酥脆，适合休闲追剧食用。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU005"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "膨化食品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "原味薯片90g"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 8.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 4.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.461
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 3520
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 31328
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.005
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1980
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "原切马铃薯制作的经典原味薯片，口感酥脆，适合休闲追剧食用。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU006",
+    "category": "食品饮料",
+    "subcategory": "坚果",
+    "name": "每日坚果混合装500g",
+    "price": 49.9,
+    "cost": 34.5,
+    "margin": 0.309,
+    "monthlySales": 1180,
+    "monthlyRevenue": 58882,
+    "returnRate": 0.011,
+    "stock": 620,
+    "rating": 4.8,
+    "detail": "包含腰果、杏仁、核桃仁及果干等多种坚果，500g组合装，适合每日营养补充。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU006"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "坚果"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "每日坚果混合装500g"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 49.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 34.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.309
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1180
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 58882
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.011
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 620
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "包含腰果、杏仁、核桃仁及果干等多种坚果，500g组合装，适合每日营养补充。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU007",
+    "category": "食品饮料",
+    "subcategory": "糖果巧克力",
+    "name": "牛奶巧克力100g",
+    "price": 12.9,
+    "cost": 7.1,
+    "margin": 0.45,
+    "monthlySales": 1750,
+    "monthlyRevenue": 22575,
+    "returnRate": 0.006,
+    "stock": 1040,
+    "rating": 4.6,
+    "detail": "香浓牛奶巧克力，口感细腻顺滑，100g包装，适合休闲零食及分享。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU007"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "糖果巧克力"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "牛奶巧克力100g"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 12.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 7.1
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.45
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1750
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 22575
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.006
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1040
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "香浓牛奶巧克力，口感细腻顺滑，100g包装，适合休闲零食及分享。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU008",
+    "category": "食品饮料",
+    "subcategory": "咖啡",
+    "name": "三合一速溶咖啡20条",
+    "price": 29.9,
+    "cost": 17.2,
+    "margin": 0.425,
+    "monthlySales": 1420,
+    "monthlyRevenue": 42458,
+    "returnRate": 0.007,
+    "stock": 890,
+    "rating": 4.7,
+    "detail": "咖啡、糖和奶精科学配比，独立条装设计，热水冲泡即可饮用。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU008"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "咖啡"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "三合一速溶咖啡20条"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 29.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 17.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.425
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1420
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 42458
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.007
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 890
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "咖啡、糖和奶精科学配比，独立条装设计，热水冲泡即可饮用。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU009",
+    "category": "食品饮料",
+    "subcategory": "茶饮",
+    "name": "茉莉绿茶500ml×6",
+    "price": 19.9,
+    "cost": 11.6,
+    "margin": 0.417,
+    "monthlySales": 2210,
+    "monthlyRevenue": 43979,
+    "returnRate": 0.004,
+    "stock": 1360,
+    "rating": 4.7,
+    "detail": "茉莉花香与绿茶茶香融合，清爽解腻，500ml瓶装6瓶组合。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU009"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "茶饮"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "茉莉绿茶500ml×6"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 19.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 11.6
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.417
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2210
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 43979
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.004
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1360
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "茉莉花香与绿茶茶香融合，清爽解腻，500ml瓶装6瓶组合。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU010",
+    "category": "食品饮料",
+    "subcategory": "调味品",
+    "name": "生抽酱油500ml",
+    "price": 9.9,
+    "cost": 5.6,
+    "margin": 0.434,
+    "monthlySales": 2680,
+    "monthlyRevenue": 26532,
+    "returnRate": 0.004,
+    "stock": 1430,
+    "rating": 4.8,
+    "detail": "日常烹饪用生抽酱油，适用于炒菜、凉拌、腌制及蘸食等多种场景。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU010"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "调味品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "生抽酱油500ml"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 9.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 5.6
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.434
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2680
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 26532
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.004
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1430
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "日常烹饪用生抽酱油，适用于炒菜、凉拌、腌制及蘸食等多种场景。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU011",
+    "category": "食品饮料",
+    "subcategory": "调味品",
+    "name": "花生食用油5L",
+    "price": 89.9,
+    "cost": 71,
+    "margin": 0.21,
+    "monthlySales": 820,
+    "monthlyRevenue": 73718,
+    "returnRate": 0.006,
+    "stock": 460,
+    "rating": 4.8,
+    "detail": "花生原料压榨食用油，5L家庭装，适用于炒菜、煎炸等日常烹饪。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU011"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "调味品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "花生食用油5L"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 89.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 71
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.21
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 820
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 73718
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.006
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 460
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "花生原料压榨食用油，5L家庭装，适用于炒菜、煎炸等日常烹饪。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU012",
+    "category": "食品饮料",
+    "subcategory": "粮食",
+    "name": "东北大米5kg",
+    "price": 39.9,
+    "cost": 31.5,
+    "margin": 0.211,
+    "monthlySales": 1530,
+    "monthlyRevenue": 61047,
+    "returnRate": 0.005,
+    "stock": 870,
+    "rating": 4.8,
+    "detail": "东北地区粳米，米粒饱满，蒸煮后口感软糯，5kg家庭装。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU012"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "粮食"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "东北大米5kg"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 39.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 31.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.211
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1530
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 61047
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.005
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 870
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "东北地区粳米，米粒饱满，蒸煮后口感软糯，5kg家庭装。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU013",
+    "category": "食品饮料",
+    "subcategory": "早餐食品",
+    "name": "即食燕麦片1kg",
+    "price": 24.9,
+    "cost": 15.2,
+    "margin": 0.39,
+    "monthlySales": 1060,
+    "monthlyRevenue": 26394,
+    "returnRate": 0.008,
+    "stock": 680,
+    "rating": 4.6,
+    "detail": "即食型燕麦片，热水或牛奶冲泡即可食用，适合作为早餐及代餐食品。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU013"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "食品饮料"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "早餐食品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "即食燕麦片1kg"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 24.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 15.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.39
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1060
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 26394
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.008
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 680
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "即食型燕麦片，热水或牛奶冲泡即可食用，适合作为早餐及代餐食品。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU014",
+    "category": "个护美妆",
+    "subcategory": "洗发护发",
+    "name": "去屑洗发水500ml",
+    "price": 29.9,
+    "cost": 16.8,
+    "margin": 0.438,
+    "monthlySales": 1870,
+    "monthlyRevenue": 55913,
+    "returnRate": 0.021,
+    "stock": 930,
+    "rating": 4.6,
+    "detail": "日常去屑清洁型洗发水，帮助清洁头皮及头发油脂，500ml家庭装。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU014"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "个护美妆"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "洗发护发"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "去屑洗发水500ml"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 29.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 16.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.438
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1870
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 55913
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.021
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 930
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "日常去屑清洁型洗发水，帮助清洁头皮及头发油脂，500ml家庭装。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU015",
+    "category": "个护美妆",
+    "subcategory": "洗发护发",
+    "name": "柔顺护发素500ml",
+    "price": 27.9,
+    "cost": 15.6,
+    "margin": 0.441,
+    "monthlySales": 1260,
+    "monthlyRevenue": 35154,
+    "returnRate": 0.02,
+    "stock": 710,
+    "rating": 4.5,
+    "detail": "滋润柔顺型护发素，改善头发毛躁打结，适合洗发后日常护理。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU015"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "个护美妆"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "洗发护发"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "柔顺护发素500ml"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 27.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 15.6
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.441
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1260
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 35154
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.02
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 710
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.5
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "滋润柔顺型护发素，改善头发毛躁打结，适合洗发后日常护理。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU016",
+    "category": "个护美妆",
+    "subcategory": "沐浴用品",
+    "name": "清爽沐浴露500ml",
+    "price": 24.9,
+    "cost": 13.2,
+    "margin": 0.47,
+    "monthlySales": 2130,
+    "monthlyRevenue": 53037,
+    "returnRate": 0.016,
+    "stock": 1150,
+    "rating": 4.7,
+    "detail": "温和清洁肌肤的清爽型沐浴露，泡沫丰富，适合家庭日常使用。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU016"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "个护美妆"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "沐浴用品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "清爽沐浴露500ml"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 24.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 13.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.47
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2130
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 53037
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.016
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1150
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "温和清洁肌肤的清爽型沐浴露，泡沫丰富，适合家庭日常使用。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU017",
+    "category": "个护美妆",
+    "subcategory": "口腔护理",
+    "name": "清新薄荷牙膏120g",
+    "price": 12.9,
+    "cost": 6.5,
+    "margin": 0.496,
+    "monthlySales": 2920,
+    "monthlyRevenue": 37668,
+    "returnRate": 0.007,
+    "stock": 1680,
+    "rating": 4.8,
+    "detail": "薄荷清新型牙膏，帮助清洁牙齿及口腔异味，适合早晚日常刷牙。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU017"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "个护美妆"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "口腔护理"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "清新薄荷牙膏120g"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 12.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 6.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.496
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2920
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 37668
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.007
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1680
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "薄荷清新型牙膏，帮助清洁牙齿及口腔异味，适合早晚日常刷牙。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU018",
+    "category": "个护美妆",
+    "subcategory": "口腔护理",
+    "name": "软毛牙刷3支装",
+    "price": 15.9,
+    "cost": 7.8,
+    "margin": 0.509,
+    "monthlySales": 2160,
+    "monthlyRevenue": 34344,
+    "returnRate": 0.009,
+    "stock": 1320,
+    "rating": 4.7,
+    "detail": "柔软刷毛设计，帮助清洁牙齿及牙龈区域，3支家庭组合装。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU018"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "个护美妆"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "口腔护理"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "软毛牙刷3支装"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 15.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 7.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.509
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2160
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 34344
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.009
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1320
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "柔软刷毛设计，帮助清洁牙齿及牙龈区域，3支家庭组合装。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU019",
+    "category": "个护美妆",
+    "subcategory": "洁面",
+    "name": "氨基酸洁面乳100g",
+    "price": 39.9,
+    "cost": 19.8,
+    "margin": 0.504,
+    "monthlySales": 980,
+    "monthlyRevenue": 39102,
+    "returnRate": 0.032,
+    "stock": 520,
+    "rating": 4.5,
+    "detail": "氨基酸表活配方洁面产品，温和清洁面部油脂及污垢，适合日常洁面。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU019"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "个护美妆"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "洁面"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "氨基酸洁面乳100g"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 39.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 19.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.504
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 980
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 39102
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.032
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 520
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.5
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "氨基酸表活配方洁面产品，温和清洁面部油脂及污垢，适合日常洁面。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU020",
+    "category": "个护美妆",
+    "subcategory": "护肤",
+    "name": "保湿身体乳400ml",
+    "price": 34.9,
+    "cost": 18.9,
+    "margin": 0.458,
+    "monthlySales": 860,
+    "monthlyRevenue": 30014,
+    "returnRate": 0.026,
+    "stock": 490,
+    "rating": 4.6,
+    "detail": "日常保湿滋润身体乳，质地易吸收，适用于手臂、腿部等身体肌肤护理。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU020"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "个护美妆"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "护肤"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "保湿身体乳400ml"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 34.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 18.9
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.458
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 860
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 30014
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.026
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 490
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "日常保湿滋润身体乳，质地易吸收，适用于手臂、腿部等身体肌肤护理。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU021",
+    "category": "家庭清洁",
+    "subcategory": "洗衣用品",
+    "name": "浓缩洗衣液2kg",
+    "price": 32.9,
+    "cost": 19.2,
+    "margin": 0.416,
+    "monthlySales": 2410,
+    "monthlyRevenue": 79289,
+    "returnRate": 0.01,
+    "stock": 1420,
+    "rating": 4.8,
+    "detail": "浓缩型衣物洗涤剂，可用于机洗及手洗，帮助去除常见衣物污渍。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU021"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家庭清洁"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "洗衣用品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "浓缩洗衣液2kg"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 32.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 19.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.416
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2410
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 79289
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.01
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1420
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "浓缩型衣物洗涤剂，可用于机洗及手洗，帮助去除常见衣物污渍。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU022",
+    "category": "家庭清洁",
+    "subcategory": "洗衣用品",
+    "name": "洗衣凝珠30颗",
+    "price": 29.9,
+    "cost": 16.5,
+    "margin": 0.448,
+    "monthlySales": 1670,
+    "monthlyRevenue": 49933,
+    "returnRate": 0.014,
+    "stock": 830,
+    "rating": 4.7,
+    "detail": "单颗定量洗衣凝珠，遇水快速溶解，适用于家庭洗衣机日常洗涤。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU022"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家庭清洁"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "洗衣用品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "洗衣凝珠30颗"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 29.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 16.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.448
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1670
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 49933
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.014
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 830
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "单颗定量洗衣凝珠，遇水快速溶解，适用于家庭洗衣机日常洗涤。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU023",
+    "category": "家庭清洁",
+    "subcategory": "厨房清洁",
+    "name": "柠檬洗洁精1.5kg",
+    "price": 16.9,
+    "cost": 9.3,
+    "margin": 0.45,
+    "monthlySales": 2280,
+    "monthlyRevenue": 38532,
+    "returnRate": 0.008,
+    "stock": 1510,
+    "rating": 4.8,
+    "detail": "柠檬清香型餐具清洁剂，可清洗碗碟、锅具等厨房用品上的油污。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU023"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家庭清洁"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "厨房清洁"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "柠檬洗洁精1.5kg"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 16.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 9.3
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.45
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2280
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 38532
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.008
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1510
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "柠檬清香型餐具清洁剂，可清洗碗碟、锅具等厨房用品上的油污。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU024",
+    "category": "家庭清洁",
+    "subcategory": "厕所清洁",
+    "name": "马桶清洁剂500ml",
+    "price": 13.9,
+    "cost": 7.2,
+    "margin": 0.482,
+    "monthlySales": 1250,
+    "monthlyRevenue": 17375,
+    "returnRate": 0.011,
+    "stock": 740,
+    "rating": 4.6,
+    "detail": "卫生间马桶专用清洁剂，帮助清洁水垢、污渍及异味。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU024"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家庭清洁"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "厕所清洁"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "马桶清洁剂500ml"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 13.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 7.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.482
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1250
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 17375
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.011
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 740
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "卫生间马桶专用清洁剂，帮助清洁水垢、污渍及异味。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU025",
+    "category": "家庭清洁",
+    "subcategory": "地板清洁",
+    "name": "多效地板清洁剂1L",
+    "price": 18.9,
+    "cost": 10.2,
+    "margin": 0.46,
+    "monthlySales": 940,
+    "monthlyRevenue": 17766,
+    "returnRate": 0.012,
+    "stock": 560,
+    "rating": 4.5,
+    "detail": "适用于瓷砖及常见硬质地面的日常清洁，帮助去除灰尘及污渍。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU025"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家庭清洁"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "地板清洁"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "多效地板清洁剂1L"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 18.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 10.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.46
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 940
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 17766
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.012
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 560
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.5
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "适用于瓷砖及常见硬质地面的日常清洁，帮助去除灰尘及污渍。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU026",
+    "category": "家庭清洁",
+    "subcategory": "清洁工具",
+    "name": "海绵百洁布10片装",
+    "price": 9.9,
+    "cost": 4.2,
+    "margin": 0.576,
+    "monthlySales": 2850,
+    "monthlyRevenue": 28215,
+    "returnRate": 0.005,
+    "stock": 1950,
+    "rating": 4.7,
+    "detail": "双面厨房清洁百洁布，一面海绵吸水，一面用于处理顽固污渍，10片装。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU026"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家庭清洁"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "清洁工具"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "海绵百洁布10片装"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 9.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 4.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.576
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2850
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 28215
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.005
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1950
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "双面厨房清洁百洁布，一面海绵吸水，一面用于处理顽固污渍，10片装。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU027",
+    "category": "家居日用",
+    "subcategory": "纸品",
+    "name": "原生木浆抽纸24包",
+    "price": 49.9,
+    "cost": 35.5,
+    "margin": 0.289,
+    "monthlySales": 2380,
+    "monthlyRevenue": 118762,
+    "returnRate": 0.007,
+    "stock": 1270,
+    "rating": 4.9,
+    "detail": "原生木浆抽取式纸巾，柔软亲肤，24包家庭囤货装。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU027"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "纸品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "原生木浆抽纸24包"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 49.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 35.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.289
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2380
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 118762
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.007
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1270
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.9
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "原生木浆抽取式纸巾，柔软亲肤，24包家庭囤货装。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU028",
+    "category": "家居日用",
+    "subcategory": "纸品",
+    "name": "无芯卷纸12卷",
+    "price": 29.9,
+    "cost": 20.8,
+    "margin": 0.304,
+    "monthlySales": 2740,
+    "monthlyRevenue": 81926,
+    "returnRate": 0.006,
+    "stock": 1580,
+    "rating": 4.8,
+    "detail": "家庭卫生间用无芯卷纸，12卷组合装，适用于日常卫生清洁。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU028"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "纸品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "无芯卷纸12卷"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 29.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 20.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.304
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2740
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 81926
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.006
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1580
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "家庭卫生间用无芯卷纸，12卷组合装，适用于日常卫生清洁。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU029",
+    "category": "家居日用",
+    "subcategory": "垃圾用品",
+    "name": "加厚垃圾袋100只",
+    "price": 15.9,
+    "cost": 7.6,
+    "margin": 0.522,
+    "monthlySales": 3180,
+    "monthlyRevenue": 50562,
+    "returnRate": 0.006,
+    "stock": 2240,
+    "rating": 4.8,
+    "detail": "加厚型家用垃圾袋，共100只，适配常见家用垃圾桶，具有一定承重能力。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU029"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "垃圾用品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "加厚垃圾袋100只"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 15.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 7.6
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.522
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 3180
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 50562
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.006
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 2240
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "加厚型家用垃圾袋，共100只，适配常见家用垃圾桶，具有一定承重能力。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU030",
+    "category": "家居日用",
+    "subcategory": "收纳",
+    "name": "塑料收纳盒30L",
+    "price": 39.9,
+    "cost": 21.5,
+    "margin": 0.461,
+    "monthlySales": 750,
+    "monthlyRevenue": 29925,
+    "returnRate": 0.038,
+    "stock": 380,
+    "rating": 4.5,
+    "detail": "30L大容量塑料收纳箱，可收纳衣物、玩具及生活杂物，适用于家庭整理。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU030"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "收纳"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "塑料收纳盒30L"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 39.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 21.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.461
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 750
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 29925
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.038
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 380
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.5
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "30L大容量塑料收纳箱，可收纳衣物、玩具及生活杂物，适用于家庭整理。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU031",
+    "category": "家居日用",
+    "subcategory": "厨房用品",
+    "name": "保鲜膜30cm×100m",
+    "price": 16.9,
+    "cost": 8.2,
+    "margin": 0.515,
+    "monthlySales": 1840,
+    "monthlyRevenue": 31096,
+    "returnRate": 0.008,
+    "stock": 1020,
+    "rating": 4.7,
+    "detail": "食品级日常保鲜膜，宽30cm、长100m，可用于果蔬及剩余食品保存。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU031"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "厨房用品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "保鲜膜30cm×100m"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 16.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 8.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.515
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1840
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 31096
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.008
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1020
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "食品级日常保鲜膜，宽30cm、长100m，可用于果蔬及剩余食品保存。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU032",
+    "category": "家居日用",
+    "subcategory": "厨房用品",
+    "name": "食品保鲜袋200只",
+    "price": 19.9,
+    "cost": 9.8,
+    "margin": 0.508,
+    "monthlySales": 1580,
+    "monthlyRevenue": 31442,
+    "returnRate": 0.007,
+    "stock": 950,
+    "rating": 4.7,
+    "detail": "一次性食品保鲜袋200只装，可用于食品分装、冷藏及日常收纳。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU032"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "厨房用品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "食品保鲜袋200只"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 19.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 9.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.508
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1580
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 31442
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.007
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 950
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "一次性食品保鲜袋200只装，可用于食品分装、冷藏及日常收纳。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU033",
+    "category": "家居日用",
+    "subcategory": "餐具",
+    "name": "陶瓷餐碗4只装",
+    "price": 29.9,
+    "cost": 16.4,
+    "margin": 0.452,
+    "monthlySales": 620,
+    "monthlyRevenue": 18538,
+    "returnRate": 0.055,
+    "stock": 330,
+    "rating": 4.4,
+    "detail": "家用陶瓷餐碗4只组合，适合盛放米饭、汤品及日常菜肴。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU033"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "餐具"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "陶瓷餐碗4只装"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 29.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 16.4
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.452
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 620
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 18538
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.055
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 330
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.4
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "家用陶瓷餐碗4只组合，适合盛放米饭、汤品及日常菜肴。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU034",
+    "category": "家居日用",
+    "subcategory": "杯具",
+    "name": "双层玻璃杯400ml",
+    "price": 24.9,
+    "cost": 13.1,
+    "margin": 0.474,
+    "monthlySales": 810,
+    "monthlyRevenue": 20169,
+    "returnRate": 0.046,
+    "stock": 450,
+    "rating": 4.5,
+    "detail": "双层玻璃结构饮水杯，容量400ml，可用于茶、咖啡及日常饮水。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU034"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "杯具"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "双层玻璃杯400ml"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 24.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 13.1
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.474
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 810
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 20169
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.046
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 450
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.5
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "双层玻璃结构饮水杯，容量400ml，可用于茶、咖啡及日常饮水。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU035",
+    "category": "家居日用",
+    "subcategory": "衣架",
+    "name": "防滑衣架20只",
+    "price": 22.9,
+    "cost": 11.4,
+    "margin": 0.502,
+    "monthlySales": 1320,
+    "monthlyRevenue": 30228,
+    "returnRate": 0.013,
+    "stock": 870,
+    "rating": 4.7,
+    "detail": "防滑设计塑料衣架，20只家庭装，可用于晾晒和衣柜收纳。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU035"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "家居日用"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "衣架"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "防滑衣架20只"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 22.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 11.4
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.502
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1320
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 30228
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.013
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 870
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "防滑设计塑料衣架，20只家庭装，可用于晾晒和衣柜收纳。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU036",
+    "category": "母婴用品",
+    "subcategory": "湿巾",
+    "name": "婴儿湿巾80抽×5包",
+    "price": 29.9,
+    "cost": 18.5,
+    "margin": 0.381,
+    "monthlySales": 1640,
+    "monthlyRevenue": 49036,
+    "returnRate": 0.01,
+    "stock": 910,
+    "rating": 4.8,
+    "detail": "柔软型婴儿湿巾，每包80抽，共5包，可用于日常肌肤及物品清洁。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU036"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "母婴用品"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "湿巾"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "婴儿湿巾80抽×5包"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 29.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 18.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.381
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1640
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 49036
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.01
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 910
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "柔软型婴儿湿巾，每包80抽，共5包，可用于日常肌肤及物品清洁。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU037",
+    "category": "母婴用品",
+    "subcategory": "纸尿裤",
+    "name": "婴儿纸尿裤M码60片",
+    "price": 89.9,
+    "cost": 65.8,
+    "margin": 0.268,
+    "monthlySales": 690,
+    "monthlyRevenue": 62031,
+    "returnRate": 0.035,
+    "stock": 370,
+    "rating": 4.7,
+    "detail": "M码婴儿纸尿裤60片装，具有吸收和防漏设计，适合对应体重阶段婴儿使用。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU037"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "母婴用品"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "纸尿裤"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "婴儿纸尿裤M码60片"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 89.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 65.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.268
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 690
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 62031
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.035
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 370
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "M码婴儿纸尿裤60片装，具有吸收和防漏设计，适合对应体重阶段婴儿使用。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU038",
+    "category": "母婴用品",
+    "subcategory": "儿童洗护",
+    "name": "儿童洗发沐浴露二合一",
+    "price": 34.9,
+    "cost": 19.6,
+    "margin": 0.438,
+    "monthlySales": 780,
+    "monthlyRevenue": 27222,
+    "returnRate": 0.018,
+    "stock": 430,
+    "rating": 4.7,
+    "detail": "儿童洗发及沐浴二合一产品，温和清洁头发和身体，简化儿童洗护步骤。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU038"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "母婴用品"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "儿童洗护"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "儿童洗发沐浴露二合一"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 34.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 19.6
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.438
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 780
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 27222
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.018
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 430
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "儿童洗发及沐浴二合一产品，温和清洁头发和身体，简化儿童洗护步骤。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU039",
+    "category": "文具办公",
+    "subcategory": "书写工具",
+    "name": "黑色中性笔12支装",
+    "price": 15.9,
+    "cost": 6.9,
+    "margin": 0.566,
+    "monthlySales": 2460,
+    "monthlyRevenue": 39114,
+    "returnRate": 0.006,
+    "stock": 1710,
+    "rating": 4.8,
+    "detail": "0.5mm黑色中性笔12支装，书写顺滑，适合学习、办公及日常记录。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU039"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "文具办公"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "书写工具"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "黑色中性笔12支装"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 15.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 6.9
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.566
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 2460
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 39114
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.006
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1710
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "0.5mm黑色中性笔12支装，书写顺滑，适合学习、办公及日常记录。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU040",
+    "category": "文具办公",
+    "subcategory": "纸张本册",
+    "name": "A5笔记本4本装",
+    "price": 18.9,
+    "cost": 8.8,
+    "margin": 0.534,
+    "monthlySales": 1350,
+    "monthlyRevenue": 25515,
+    "returnRate": 0.01,
+    "stock": 860,
+    "rating": 4.7,
+    "detail": "A5尺寸笔记本4本组合，可用于课堂笔记、会议记录及日常书写。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU040"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "文具办公"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "纸张本册"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "A5笔记本4本装"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 18.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 8.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.534
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1350
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 25515
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.01
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 860
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "A5尺寸笔记本4本组合，可用于课堂笔记、会议记录及日常书写。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU041",
+    "category": "文具办公",
+    "subcategory": "办公耗材",
+    "name": "A4打印纸500张",
+    "price": 24.9,
+    "cost": 19.2,
+    "margin": 0.229,
+    "monthlySales": 1840,
+    "monthlyRevenue": 45816,
+    "returnRate": 0.007,
+    "stock": 960,
+    "rating": 4.8,
+    "detail": "A4规格办公打印纸500张，可用于打印、复印、书写等办公及学习场景。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU041"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "文具办公"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "办公耗材"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "A4打印纸500张"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 24.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 19.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.229
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1840
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 45816
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.007
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 960
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "A4规格办公打印纸500张，可用于打印、复印、书写等办公及学习场景。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU042",
+    "category": "文具办公",
+    "subcategory": "文具工具",
+    "name": "透明胶带6卷装",
+    "price": 12.9,
+    "cost": 5.4,
+    "margin": 0.581,
+    "monthlySales": 1280,
+    "monthlyRevenue": 16512,
+    "returnRate": 0.005,
+    "stock": 920,
+    "rating": 4.6,
+    "detail": "透明办公胶带6卷组合，可用于文件粘贴、包装及日常手工制作。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU042"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "文具办公"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "文具工具"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "透明胶带6卷装"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 12.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 5.4
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.581
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1280
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 16512
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.005
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 920
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "透明办公胶带6卷组合，可用于文件粘贴、包装及日常手工制作。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU043",
+    "category": "小家电",
+    "subcategory": "厨房电器",
+    "name": "1.5L电热水壶",
+    "price": 69.9,
+    "cost": 45,
+    "margin": 0.356,
+    "monthlySales": 570,
+    "monthlyRevenue": 39843,
+    "returnRate": 0.062,
+    "stock": 290,
+    "rating": 4.5,
+    "detail": "1.5L容量家用电热水壶，支持快速烧水及自动断电保护。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU043"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "小家电"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "厨房电器"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "1.5L电热水壶"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 69.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 45
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.356
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 570
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 39843
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.062
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 290
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.5
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "1.5L容量家用电热水壶，支持快速烧水及自动断电保护。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU044",
+    "category": "小家电",
+    "subcategory": "个护电器",
+    "name": "家用电吹风机1600W",
+    "price": 79.9,
+    "cost": 49.8,
+    "margin": 0.377,
+    "monthlySales": 490,
+    "monthlyRevenue": 39151,
+    "returnRate": 0.075,
+    "stock": 260,
+    "rating": 4.4,
+    "detail": "1600W家用电吹风机，支持多档风速及温度调节，适合日常吹干头发。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU044"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "小家电"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "个护电器"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "家用电吹风机1600W"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 79.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 49.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.377
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 490
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 39151
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.075
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 260
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.4
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "1600W家用电吹风机，支持多档风速及温度调节，适合日常吹干头发。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU045",
+    "category": "小家电",
+    "subcategory": "照明",
+    "name": "LED护眼台灯",
+    "price": 59.9,
+    "cost": 34.5,
+    "margin": 0.424,
+    "monthlySales": 420,
+    "monthlyRevenue": 25158,
+    "returnRate": 0.058,
+    "stock": 210,
+    "rating": 4.6,
+    "detail": "LED学习办公台灯，可调节亮度，适合书桌阅读、学习及办公照明。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU045"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "小家电"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "照明"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "LED护眼台灯"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 59.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 34.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.424
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 420
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 25158
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.058
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 210
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "LED学习办公台灯，可调节亮度，适合书桌阅读、学习及办公照明。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU046",
+    "category": "生活用品",
+    "subcategory": "雨具",
+    "name": "自动折叠雨伞",
+    "price": 39.9,
+    "cost": 20.5,
+    "margin": 0.486,
+    "monthlySales": 780,
+    "monthlyRevenue": 31122,
+    "returnRate": 0.041,
+    "stock": 510,
+    "rating": 4.5,
+    "detail": "自动开合折叠雨伞，方便携带，可用于日常通勤及雨天出行。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU046"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "生活用品"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "雨具"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "自动折叠雨伞"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 39.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 20.5
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.486
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 780
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 31122
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.041
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 510
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.5
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "自动开合折叠雨伞，方便携带，可用于日常通勤及雨天出行。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU047",
+    "category": "生活用品",
+    "subcategory": "电池",
+    "name": "5号碱性电池12粒",
+    "price": 19.9,
+    "cost": 10.8,
+    "margin": 0.457,
+    "monthlySales": 1430,
+    "monthlyRevenue": 28457,
+    "returnRate": 0.008,
+    "stock": 980,
+    "rating": 4.8,
+    "detail": "5号AA碱性电池12粒组合，可用于遥控器、玩具、时钟等常见设备。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU047"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "生活用品"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "电池"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "5号碱性电池12粒"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 19.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 10.8
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.457
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1430
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 28457
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.008
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 980
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.8
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "5号AA碱性电池12粒组合，可用于遥控器、玩具、时钟等常见设备。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU048",
+    "category": "生活用品",
+    "subcategory": "口罩",
+    "name": "一次性防护口罩50只",
+    "price": 19.9,
+    "cost": 8.6,
+    "margin": 0.568,
+    "monthlySales": 1710,
+    "monthlyRevenue": 34029,
+    "returnRate": 0.01,
+    "stock": 1260,
+    "rating": 4.7,
+    "detail": "一次性日常防护口罩50只装，采用多层过滤结构，适用于日常通勤场景。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU048"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "生活用品"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "口罩"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "一次性防护口罩50只"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 19.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 8.6
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.568
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1710
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 34029
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.01
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 1260
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "一次性日常防护口罩50只装，采用多层过滤结构，适用于日常通勤场景。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU049",
+    "category": "宠物用品",
+    "subcategory": "清洁用品",
+    "name": "宠物湿巾80抽",
+    "price": 16.9,
+    "cost": 8.3,
+    "margin": 0.509,
+    "monthlySales": 690,
+    "monthlyRevenue": 11661,
+    "returnRate": 0.014,
+    "stock": 450,
+    "rating": 4.6,
+    "detail": "宠物专用清洁湿巾80抽，可用于宠物爪部、毛发及日常局部清洁。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU049"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "宠物用品"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "清洁用品"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "宠物湿巾80抽"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 16.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 8.3
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.509
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 690
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 11661
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.014
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 450
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.6
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "宠物专用清洁湿巾80抽，可用于宠物爪部、毛发及日常局部清洁。"
+      }
+    ]
+  },
+  {
+    "sku": "SKU050",
+    "category": "宠物用品",
+    "subcategory": "猫砂",
+    "name": "豆腐猫砂6L",
+    "price": 29.9,
+    "cost": 18.2,
+    "margin": 0.391,
+    "monthlySales": 1150,
+    "monthlyRevenue": 34385,
+    "returnRate": 0.016,
+    "stock": 680,
+    "rating": 4.7,
+    "detail": "豆腐原料猫砂6L装，具有吸水结团性能，方便日常猫砂盆清理。",
+    "sourceFields": [
+      {
+        "column": 1,
+        "header": "SKU",
+        "value": "SKU050"
+      },
+      {
+        "column": 2,
+        "header": "一级品类",
+        "value": "宠物用品"
+      },
+      {
+        "column": 3,
+        "header": "二级品类",
+        "value": "猫砂"
+      },
+      {
+        "column": 4,
+        "header": "商品名",
+        "value": "豆腐猫砂6L"
+      },
+      {
+        "column": 5,
+        "header": "售价",
+        "value": 29.9
+      },
+      {
+        "column": 6,
+        "header": "成本价",
+        "value": 18.2
+      },
+      {
+        "column": 7,
+        "header": "毛利率",
+        "value": 0.391
+      },
+      {
+        "column": 8,
+        "header": "月销量",
+        "value": 1150
+      },
+      {
+        "column": 9,
+        "header": "月销售额",
+        "value": 34385
+      },
+      {
+        "column": 10,
+        "header": "退货率",
+        "value": 0.016
+      },
+      {
+        "column": 11,
+        "header": "库存量",
+        "value": 680
+      },
+      {
+        "column": 12,
+        "header": "用户评分",
+        "value": 4.7
+      },
+      {
+        "column": 13,
+        "header": "商品详情",
+        "value": "豆腐原料猫砂6L装，具有吸水结团性能，方便日常猫砂盆清理。"
+      }
+    ]
+  }
+]
