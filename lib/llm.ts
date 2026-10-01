@@ -139,15 +139,19 @@ export async function generatePlatformContent<K extends PlatformKey>(
   }
 
   if (platform === "xiaohongshu") {
-    const { title, content, tags, coverText, imagePrompt } = result;
-    if (typeof title !== "string" || !title.trim() || typeof content !== "string" || !content.trim() ||
+    const { contentAngle, title, hook, content, tags, coverText, imagePrompt } = result;
+    if (typeof contentAngle !== "string" || !contentAngle.trim() ||
+      typeof title !== "string" || !title.trim() || typeof hook !== "string" || !hook.trim() || hook.trim().length > 120 ||
+      typeof content !== "string" || !content.trim() ||
       !Array.isArray(tags) || tags.length < 3 || tags.length > 6 ||
       !tags.every((tag) => typeof tag === "string" && tag.trim()) ||
       typeof coverText !== "string" || !coverText.trim() || typeof imagePrompt !== "string" || !imagePrompt.trim()) {
       throw new Error("小红书内容缺少有效字段。");
     }
     return {
+      contentAngle: contentAngle.trim(),
       title: title.trim(),
+      hook: hook.trim(),
       content: content.trim(),
       tags: (tags as string[]).map((tag) => tag.trim()),
       coverText: coverText.trim(),

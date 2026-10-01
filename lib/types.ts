@@ -46,7 +46,9 @@ export interface WeiboContent {
 }
 
 export interface XiaohongshuContent {
+  contentAngle: string;
   title: string;
+  hook: string;
   content: string;
   tags: string[];
   coverText: string;

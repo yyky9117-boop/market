@@ -69,7 +69,8 @@ button, input { font: inherit; }
 .label-icon { display: inline-grid; width: 20px; height: 20px; place-items: center; border-radius: 6px; background: #f0f3ee; color: #5d715b; font-size: 11px; }
 .news-title { display: -webkit-box; overflow: hidden; margin: 0 0 8px; color: #2c332b; font-size: 14px; line-height: 1.6; font-weight: 620; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .news-brief { display: -webkit-box; overflow: hidden; margin: 0; color: #798176; font-size: 11px; line-height: 1.75; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
-.news-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 13px; color: #9aa096; font-size: 10px; }
+.news-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 13px; color: #9aa096; font-size: 10px; }
+.news-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .text-link { color: #55765b; text-decoration: none; }
 .insight-section { background: #fbfcfa; }
 .risk-badge { display: inline-flex; align-items: center; gap: 5px; margin-bottom: 11px; border-radius: 99px; padding: 5px 9px; background: #edf5ed; color: #4f7455; font-size: 10px; }
@@ -87,7 +88,10 @@ button, input { font: inherit; }
 .product-detail { margin: 10px 0 0; color: #81897d; font-size: 10px; line-height: 1.65; }
 .copy-section { flex: 1; background: #fff; }
 .copy-headline { margin: 0 0 7px; color: #374635; font-size: 12px; font-weight: 650; line-height: 1.6; }
-.copy-content { margin: 0; color: #727b70; font-size: 10px; line-height: 1.8; }
+.copy-content { margin: 0; color: #727b70; font-size: 10px; line-height: 1.8; white-space: pre-line; }
+.content-angle { display: inline-flex; margin-bottom: 7px; border-radius: 99px; padding: 4px 8px; background: #f0f4ed; color: #668069; font-size: 9px; }
+.xiaohongshu-hook { margin: 0 0 9px; border-left: 2px solid #dfe9dd; padding: 3px 0 3px 9px; color: #596b55; font-size: 10px; line-height: 1.75; }
+.xiaohongshu-hook span { display: block; margin-bottom: 2px; color: #929b8f; font-size: 8px; }
 .platform-tabs { display: flex; gap: 5px; padding: 3px; border: 1px solid #ecefe9; border-radius: 10px; background: #f8f9f6; }
 .platform-tab { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 7px; padding: 8px 5px; background: transparent; color: #7d867b; font-size: 10px; cursor: pointer; }
 .platform-tab.active { background: white; color: #386b4c; box-shadow: 0 1px 4px rgba(33,46,33,.08); font-weight: 650; }

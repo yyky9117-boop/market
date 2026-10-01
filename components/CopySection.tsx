@@ -86,12 +86,14 @@ export default function CopySection({
                   <div className="platform-actions">{copyButton("weibo", `${contents.weibo.title}\n\n${contents.weibo.content}\n\n${contents.weibo.hashtags.join(" ")}`, "复制微博文案")}</div>
                 </>
                 : active === "xiaohongshu" && contents.xiaohongshu ? <>
+                    <div className="content-angle">{contents.xiaohongshu.contentAngle}</div>
                     <h4 className="copy-headline">{contents.xiaohongshu.title}</h4>
+                    <div className="xiaohongshu-hook"><span>开篇 Hook</span>{contents.xiaohongshu.hook}</div>
                     <p className="copy-content">{contents.xiaohongshu.content}</p>
                     <div className="hashtags">{contents.xiaohongshu.tags.map((tag, index) => <span className="hashtag" key={`${tag}-${index}`}>#{tag.replace(/^#/, "")}</span>)}</div>
                     <div className="platform-extra"><span>封面文案</span><strong>{contents.xiaohongshu.coverText}</strong>{copyButton("xhs-cover", contents.xiaohongshu.coverText, "复制封面文案")}</div>
                     <details className="image-prompt"><summary>展开配图建议</summary><p>{contents.xiaohongshu.imagePrompt}</p>{copyButton("xhs-image", contents.xiaohongshu.imagePrompt, "复制配图 Prompt")}</details>
-                    <div className="platform-actions">{copyButton("xiaohongshu", `${contents.xiaohongshu.title}\n\n${contents.xiaohongshu.content}\n\n${contents.xiaohongshu.tags.map((tag) => `#${tag.replace(/^#/, "")}`).join(" ")}`, "复制笔记")}</div>
+                    <div className="platform-actions">{copyButton("xiaohongshu", `${contents.xiaohongshu.title}\n\n${contents.xiaohongshu.hook}\n\n${contents.xiaohongshu.content}\n\n${contents.xiaohongshu.tags.map((tag) => `#${tag.replace(/^#/, "")}`).join(" ")}`, "复制笔记")}</div>
                   </>
                   : active === "douyin" && contents.douyin ? <>
                       <h4 className="copy-headline">{contents.douyin.title}</h4>

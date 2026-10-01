@@ -50,8 +50,10 @@ function createItem(
         hashtags,
       },
       xiaohongshu: {
+        contentAngle: "出行补给准备",
         title: `${consumerNeed}怎么准备？从一个小场景开始`,
-        content: `围绕${event}做准备时，可以先想想自己最常遇到的场景：${consumerNeed}。\n\n${product.name}：${product.detail}\n\n把真正用得上的东西提前安排好，行程会更从容。具体信息可以查看商品详情。`,
+        hook: `${event}相关安排一多，容易顾着行程，却忘了路上最基础的${consumerNeed}。`,
+        content: `围绕${event}做准备时，可以先想想自己最常遇到的场景：${consumerNeed}。\n\n像随身补给这种小事，提前理一遍会更从容。${product.name}可以作为一个备选，${product.detail}\n\n具体要不要带、带多少，还是按自己的行程和需要来安排。你出门前最常检查哪一样？`,
         tags: [event, consumerNeed, "生活方式", "出行准备"],
         coverText: `${consumerNeed}准备思路`,
         imagePrompt: `一张自然简约的小红书生活方式摄影。主体为${product.name}，放在与${event}相关的真实生活场景中；采用干净留白构图、柔和自然光和轻松日常氛围，商品以真实包装自然融入画面，不添加促销文字，不展示任何经营数据。`,
