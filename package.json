@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "products:convert": "node --experimental-strip-types scripts/convertProducts.ts"
+    "products:convert": "node --experimental-strip-types scripts/convertProducts.ts",
+    "eval": "node --experimental-strip-types --import ./evaluation/alias-loader.mjs ./evaluation/runEvaluation.ts"
   },
   "dependencies": {
     "exceljs": "^4.4.0",
+    "jszip": "3.10.2",
     "next": "^16.3.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

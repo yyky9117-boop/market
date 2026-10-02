@@ -5,3 +5,5 @@ out/
 !.env.example
 npm-debug.log*
 *.tsbuildinfo
+evaluation/review-progress.json
+evaluation/review-progress.*.tmp
