@@ -1,4 +1,4 @@
-export default function Header({ mode, newsMode, busy }: { mode: "mock" | "llm"; newsMode: "mock" | "live"; busy: boolean }) {
+export default function Header({ mode, newsMode, busy }: { mode: "mock" | "llm" | null; newsMode: "mock" | "live"; busy: boolean }) {
   return (
     <header className="topbar">
       <div className="brand">
@@ -7,10 +7,10 @@ export default function Header({ mode, newsMode, busy }: { mode: "mock" | "llm";
       </div>
       <div className="topbar-right">
         <span>AI 电商营销工作台</span>
-        <span className={`mock-pill${busy ? " loading-pill" : ""}`} aria-live="polite">
+        {(busy || mode !== null) && <span className={`mock-pill${busy ? " loading-pill" : ""}`} aria-live="polite">
           <i className={busy ? "loading-dot" : "mock-dot"} />
           {busy ? "AI 正在分析" : mode === "mock" ? "Mock 演示模式" : newsMode === "live" ? "LLM + 实时新闻" : "LLM 已接入 · 新闻 Mock"}
-        </span>
+        </span>}
       </div>
     </header>
   );

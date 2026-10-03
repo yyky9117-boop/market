@@ -61,7 +61,7 @@ export default function HomePage() {
 
   return (
     <div className="app-shell">
-      <Header mode={result?.mode ?? "mock"} newsMode={result?.newsMode ?? "mock"} busy={busy} />
+      <Header mode={result?.mode ?? null} newsMode={result?.newsMode ?? "mock"} busy={busy} />
       <main className="main">
         <SearchPanel query={query} busy={busy} onQueryChange={setQuery} onSubmit={generate} />
         <WorkflowProgress activeStep={activeStep} visible={busy || Boolean(result)} />

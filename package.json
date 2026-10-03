@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint .",
     "products:convert": "node --experimental-strip-types scripts/convertProducts.ts",
-    "eval": "node --experimental-strip-types --import ./evaluation/alias-loader.mjs ./evaluation/runEvaluation.ts"
+    "eval": "node --experimental-strip-types --import ./evaluation/alias-loader.mjs ./evaluation/runEvaluation.ts",
+    "eval:calibrate": "node ./evaluation/calibrateV1_1.mjs",
+    "eval:check": "node --test ./evaluation/benchmarkV1_1.test.mjs"
   },
   "dependencies": {
     "exceljs": "^4.4.0",

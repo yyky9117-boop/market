@@ -1,0 +1,24 @@
+{
+  "EV020": {
+    "expected": {
+      "shouldGenerate": false,
+      "fitLevel": "weak"
+    },
+    "labelConfirmed": true,
+    "source": "human_review",
+    "reason": "人工明确说明铁路轻装出行与500ml家庭装沐浴露的关系牵强，系统 Reject 更合理。",
+    "evidence": "Badcase人工复核 / EV020 / 人工问题描述",
+    "reviewedAt": "2026-10-02T11:15:55.435Z"
+  },
+  "EV025": {
+    "expected": {
+      "shouldGenerate": false,
+      "fitLevel": "weak"
+    },
+    "labelConfirmed": true,
+    "source": "human_review",
+    "reason": "用户明确确认该新闻没有合理可关联商品，系统 Reject 正确，不是 Badcase。",
+    "evidence": "用户对 EV025 的明确仲裁；Excel最终结论=否",
+    "reviewedAt": "2026-10-02T11:29:01.893Z"
+  }
+}

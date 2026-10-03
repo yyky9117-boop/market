@@ -3,11 +3,15 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { EvaluationCase, ReviewAnswers } from "@/lib/evaluation-store";
+import type { BenchmarkSummary } from "../../evaluation/benchmarkV1_1.mjs";
+import AdjudicationPanel from "./AdjudicationPanel";
 
 type Priority = "优先评测" | "普通" | "可稍后";
 type ReviewStatus = "未评测" | "已评测" | "有争议";
 type ReviewDraft = Record<string, string | number | null>;
 type Summary = {
+  benchmark?: BenchmarkSummary;
+  deepTotal?:number;deepCompleted?:number;lightRemaining?:number;
   total: number;
   completed: number;
   disputed: number;
@@ -121,6 +125,8 @@ function CaseTabs({ item }: { item: EvaluationCase }) {
 }
 
 export default function EvaluationWorkspace() {
+  const [mode,setMode]=useState<"deep"|"light">("light");
+  const [remainingOnly,setRemainingOnly]=useState(true);
   const [cases, setCases] = useState<EvaluationCase[]>([]);
   const [summary, setSummary] = useState<Summary>(emptySummary);
   const [currentId, setCurrentId] = useState("");
@@ -173,7 +179,8 @@ export default function EvaluationWorkspace() {
     return () => { mounted = false; };
   }, []);
 
-  const visibleCases = useMemo(() => cases.filter((item) => {
+  const modeCases=useMemo(()=>cases.filter(item=>mode==="deep"?item.machineFlagged:!remainingOnly||!item.machineFlagged),[cases,mode,remainingOnly]);
+  const visibleCases = useMemo(() => modeCases.filter((item) => {
     if (priorityFilter && item.machinePriority !== priorityFilter) return false;
     if (statusFilter && item.reviewStatus !== statusFilter) return false;
     if (categoryFilter && item.testType !== categoryFilter) return false;
@@ -182,7 +189,7 @@ export default function EvaluationWorkspace() {
     if (severityFilter && item.review.Severity !== severityFilter) return false;
     return true;
   }).sort((a, b) => (priorityRank[a.machinePriority] ?? 9) - (priorityRank[b.machinePriority] ?? 9) || a.caseId.localeCompare(b.caseId)),
-  [cases, priorityFilter, statusFilter, categoryFilter, badcaseFilter, attributionFilter, severityFilter]);
+  [modeCases, priorityFilter, statusFilter, categoryFilter, badcaseFilter, attributionFilter, severityFilter]);
 
   const current = visibleCases.find((item) => item.caseId === currentId) ?? visibleCases[0];
   const draft = useMemo(() => current ? drafts[current.caseId] ?? asDraft(current.review) : {}, [current, drafts]);
@@ -239,6 +246,8 @@ export default function EvaluationWorkspace() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [saveCurrent]);
 
+  const changeMode=(next:"deep"|"light")=>{setMode(next);setCurrentId("");setPriorityFilter("");setStatusFilter(next==="deep"?"":"未评测");setCategoryFilter("");setBadcaseFilter("");setAttributionFilter("");setSeverityFilter("");};
+  const refreshArtifacts=async()=>{setBusy(true);try{const r=await fetch("/api/evaluation/refresh",{method:"POST"});const data=await r.json();if(!r.ok)throw new Error(data.error);await refreshSummary();setNotice("阶段报告和数据快照已更新。Excel导出会读取最新人工结果。");}catch(e){setActiveError(e instanceof Error?e.message:"更新失败");}finally{setBusy(false);}};
   const setAllFilters = () => {
     setPriorityFilter(""); setStatusFilter(""); setCategoryFilter("");
     setBadcaseFilter(""); setAttributionFilter(""); setSeverityFilter("");
@@ -252,8 +261,8 @@ export default function EvaluationWorkspace() {
       </header>
       <main className="eval-main">
         <section className="eval-heading">
-          <div><div className="eval-eyebrow">EVALUATION WORKSPACE</div><h1>Badcase 人工评测</h1><p>按 Case ID 保存复核结果。原始工作簿只读，导出会生成一份完成版。</p></div>
-          <a className="eval-export" href="/api/evaluation/export">导出 completed.xlsx <span aria-hidden="true">↓</span></a>
+          <div><div className="eval-eyebrow">EVALUATION WORKSPACE</div><h1>Benchmark 人工评测</h1><p>按 Case ID 保存复核结果。原始工作簿只读，导出会生成一份完成版。</p></div>
+          <div className="eval-heading-actions"><button type="button" className="eval-reset" disabled={busy} onClick={()=>void refreshArtifacts()}>更新阶段报告</button><a className="eval-export" href={`/api/evaluation/export?mode=${mode==="deep"?"deep":"full"}`}>导出 {mode==="deep"?"29条复核":"全量复核"} Excel</a></div>
         </section>
 
         <section className="eval-overview" aria-label="评测进度">
@@ -263,6 +272,8 @@ export default function EvaluationWorkspace() {
           <div className="eval-stat"><span>有争议</span><strong>{summary.disputed}</strong></div>
         </section>
 
+        <section className="eval-mode-switch" aria-label="评测模式"><button type="button" aria-pressed={mode==="deep"} className={mode==="deep"?"active":""} onClick={()=>changeMode("deep")}>Badcase 深度复核 <small>{summary.deepCompleted??0}/{summary.deepTotal??29}</small></button><button type="button" aria-pressed={mode==="light"} className={mode==="light"?"active":""} onClick={()=>changeMode("light")}>全量轻量复核 <small>剩余 {summary.lightRemaining??31} 条机器未标记案例</small></button>{mode==="light"&&<label><input type="checkbox" checked={remainingOnly} onChange={e=>{setRemainingOnly(e.target.checked);setCurrentId("");}}/>仅看原机器未标记案例</label>}</section>
+        {summary.benchmark&&<section className="eval-baseline-strip"><span>{summary.benchmark.status==="frozen"?"基线已冻结":"阶段基线 · 未冻结"}</span><span>决策准确率 {summary.benchmark.decisionQuality.completedDecisionAccuracy.numerator}/{summary.benchmark.decisionQuality.completedDecisionAccuracy.denominator}</span><span>端到端 {summary.benchmark.decisionQuality.endToEndCorrectRate.numerator}/60</span><span>Golden待仲裁 {summary.benchmark.freeze.pendingGolden}</span><span>归因待确认 {summary.benchmark.freeze.pendingRootCauses}</span><span>Recall / F1 {summary.benchmark.detector.status==="complete"?"已可计算":"待全量复核"}</span></section>}
         <details className="eval-summary-details">
           <summary>查看人工评测汇总</summary>
           <div className="eval-summary-grid">
@@ -284,13 +295,13 @@ export default function EvaluationWorkspace() {
 
         {activeError && <div className="eval-alert" role="alert">{activeError}</div>}
         {notice && <div className="eval-notice" role="status">{notice}</div>}
-        <div className="eval-count-line">当前显示 {visibleCases.length} / {cases.length} 条{current ? <span> · 正在复核 {current.caseId}</span> : null}</div>
+        <div className="eval-count-line">当前显示 {visibleCases.length} / {modeCases.length} 条{current ? <span> · 正在复核 {current.caseId}</span> : null}</div>
 
         {current ? <>
           <div className="eval-workspace-grid">
             <section className="eval-case-column" aria-label="机器评测案例">
               <div className="eval-case-head">
-                <div><span className="eval-case-id">{current.caseId}</span><span className="eval-category">{current.testType}</span><MachinePriority value={current.machinePriority} /></div>
+                <div><span className="eval-case-id">{current.caseId}</span><span className="eval-category">{current.testType}</span>{current.machineFlagged?<MachinePriority value={current.machinePriority} />:<span className="eval-category">原机器未标记</span>}</div>
                 <span className={`eval-review-state ${current.reviewStatus === "已评测" ? "done" : current.reviewStatus === "有争议" ? "disputed" : ""}`}>{current.reviewStatus}</span>
               </div>
               <section className="eval-panel"><div className="eval-label">新闻标题</div><h2 className="eval-news-title">{current.newsTitle}</h2><div className="eval-label">新闻摘要</div><p className="eval-prose">{current.newsSummary}</p></section>
@@ -298,6 +309,8 @@ export default function EvaluationWorkspace() {
                 <section className="eval-panel"><div className="eval-label">Golden预期</div><pre className="eval-prose">{current.goldenExpected}</pre></section>
                 <section className="eval-panel"><div className="eval-label">系统实际结果</div><pre className="eval-prose">{current.actualResult}</pre></section>
               </div>
+              <section className="eval-panel"><div className="eval-label">匹配商品</div><p className="eval-prose">{current.matchedProduct}</p><p className="eval-muted">执行：{current.benchmark.executionStatus} · 决策：{current.benchmark.decisionStatus}</p>{current.benchmark.reason&&<p className="eval-prose">{current.benchmark.reason}</p>}</section>
+              <section className="eval-panel"><div className="eval-label">v1.1 校准预期 · {current.benchmark.adjudication.status}</div><p className="eval-prose">{current.benchmark.adjudicatedExpected.shouldGenerate?"Generate":"Reject"} · {current.benchmark.adjudicatedExpected.fitLevel} · marketingSafe={String(current.benchmark.adjudicatedExpected.marketingSafe)}</p>{current.benchmark.adjudication.reason&&<p className="eval-prose">{current.benchmark.adjudication.reason}</p>}</section>
               <section className="eval-panel"><div className="eval-label">Relationship Path</div><pre className="eval-prose">{current.relationshipPath || "—"}</pre></section>
               <section className="eval-panel eval-machine-note"><div><div className="eval-label">机器 Badcase 类型</div><pre className="eval-prose">{current.machineBadcaseType || "—"}</pre></div><div><div className="eval-label">Machine / Judge 原因</div><pre className="eval-prose">{current.machineJudgeReason || "—"}</pre></div></section>
               <CaseTabs key={current.caseId} item={current} />
@@ -305,13 +318,14 @@ export default function EvaluationWorkspace() {
 
             <aside className="eval-form-column">
               <section className="eval-form-card">
-                <div className="eval-form-heading"><div><div className="eval-label">人工复核</div><h2>记录判断与评分</h2></div><span>保存于本地</span></div>
-                {(current.machineBadcaseType || current.machineJudgeReason) && <section className="eval-machine-suggestion"><div><strong>机器建议</strong><span>请复核后决定是否采用</span></div><p>建议一级归因：<b>{current.machineSuggestedPrimary || "待判断"}</b></p><p>建议二级归因：<b>{current.machineSuggestedSecondary || "待判断"}</b></p><button type="button" onClick={() => { updateDraft("一级归因", current.machineSuggestedPrimary); updateDraft("二级归因", current.machineSuggestedSecondary); }}>采用机器建议</button></section>}
+                <div className="eval-form-heading"><div><div className="eval-label">人工复核</div><h2>{mode==="deep"?"记录判断与评分":"快速确认结论"}</h2></div><span>保存于本地</span></div>
+                {current.machineFlagged && (current.machineBadcaseType || current.machineJudgeReason) && <section className="eval-machine-suggestion"><div><strong>机器建议</strong><span>请复核后决定是否采用</span></div><p>建议一级归因：<b>{current.machineSuggestedPrimary || "待判断"}</b></p><p>建议二级归因：<b>{current.machineSuggestedSecondary || "待判断"}</b></p><button type="button" onClick={() => { updateDraft("一级归因", current.machineSuggestedPrimary); updateDraft("二级归因", current.machineSuggestedSecondary); }}>采用机器建议</button></section>}
                 <label className="eval-field-label">是否真的是 Badcase</label>
                 <div className="eval-choice-row">{["是", "否", "有争议"].map((value) => <button key={value} type="button" className={draft["是否真的是Badcase"] === value ? "selected" : ""} aria-pressed={draft["是否真的是Badcase"] === value} onClick={() => updateDraft("是否真的是Badcase", value)}>{value}</button>)}</div>
-                <div className="eval-rating-list">{scoreFields.map((field) => <RatingGroup key={field.key} label={field.key} value={draft[field.key]} hints={field.hints} onChange={(value) => updateDraft(field.key, value)} />)}</div>
-                <label className="eval-field-label" htmlFor="would-use">WouldUse</label>
+                {mode==="deep"&&<div className="eval-rating-list">{scoreFields.map((field) => <RatingGroup key={field.key} label={field.key} value={draft[field.key]} hints={field.hints} onChange={(value) => updateDraft(field.key, value)} />)}</div>}
+                <label className="eval-field-label" htmlFor="would-use">WouldUse</label>{!current.hasGeneratedContent&&<p className="eval-muted">当前为拒绝或运行失败，没有可使用的文案，此项可留空。合法拒绝不等于 Badcase。</p>}
                 <select id="would-use" value={String(draft.WouldUse ?? "")} onChange={(event) => updateDraft("WouldUse", event.target.value)}><option value="">请选择</option>{["直接使用", "修改后使用", "不会使用"].map((x) => <option key={x}>{x}</option>)}</select>
+                {(mode==="deep"||draft["是否真的是Badcase"]==="是")&&<>
                 <label className="eval-field-label" htmlFor="primary-attribution">一级归因</label>
                 <select id="primary-attribution" value={String(draft["一级归因"] ?? "")} onChange={(event) => updateDraft("一级归因", event.target.value)}><option value="">请选择</option>{attributions.map((x) => <option key={x}>{x}</option>)}</select>
                 <label className="eval-field-label" htmlFor="secondary-attribution">二级归因</label>
@@ -322,10 +336,14 @@ export default function EvaluationWorkspace() {
                 <label className="eval-field-label" htmlFor="pool">是否进入需求池</label>
                 <select id="pool" value={String(draft["是否进入需求池"] ?? "")} onChange={(event) => updateDraft("是否进入需求池", event.target.value)}><option value="">请选择</option>{["是", "否", "待讨论"].map((x) => <option key={x}>{x}</option>)}</select>
                 <label className="eval-field-label" htmlFor="problem">人工问题描述</label><textarea id="problem" rows={3} value={String(draft["人工问题描述"] ?? "")} onChange={(event) => updateDraft("人工问题描述", event.target.value)} />
+                </>}
+                {mode==="deep"&&<>
                 <label className="eval-field-label" htmlFor="fix">建议修复方向</label><textarea id="fix" rows={3} value={String(draft["建议修复方向"] ?? "")} onChange={(event) => updateDraft("建议修复方向", event.target.value)} />
                 <label className="eval-field-label" htmlFor="notes">备注</label><textarea id="notes" rows={2} value={String(draft["备注"] ?? "")} onChange={(event) => updateDraft("备注", event.target.value)} />
+                </>}
                 <button type="button" className="eval-save-button" disabled={busy} onClick={() => void saveCurrent(false)}>{busy ? "保存中…" : "保存"}</button>
               </section>
+              <AdjudicationPanel key={current.caseId} item={current} onSaved={async()=>{await Promise.all([refreshCases(),refreshSummary()]);setNotice("人工仲裁已保存。原 Golden 与原人工输入仍保留。");}} />
             </aside>
           </div>
           <nav className="eval-bottom-actions" aria-label="案例导航">

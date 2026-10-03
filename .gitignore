@@ -7,3 +7,9 @@ npm-debug.log*
 *.tsbuildinfo
 evaluation/review-progress.json
 evaluation/review-progress.*.tmp
+evaluation/.review-write.lock/
+evaluation/human/*.tmp
+evaluation/results/*.tmp
+evaluation/dataset/*.tmp
+evaluation/*.tmp
+.evaluation-artifacts/

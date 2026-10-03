@@ -1,0 +1,14 @@
+{
+  "datasetVersion": "evaluation_v1.1",
+  "businessVersion": "v1.2.2",
+  "sourceHashes": {
+    "dataset/evaluation_v1.json": "144e54c6453287c2af5ea669a7776eaf468ccee5546abf30bc7ddedc12fe1d3d",
+    "results/raw_results_v1.json": "30893bf6c96f32158366c69e7f2a3abfda455dfd5d9a4b11cc37d5e76e484bee",
+    "results/summary_v1.json": "76f7ff6a9893bc6935715ae403ad5f84dc4720b37082b97fd0056ec223b10e6f",
+    "human/badcase_human_review_completed.xlsx": "7d863dab8cd5141b31ef1d91e90a1b1c4cbe8afa1be4fd6f9ecd31ee2c9ce9c5"
+  },
+  "checkpointCommit": "1dd16aa1e7028d51f5c36c6db99d94cfdb37a0db",
+  "sourceRunId": "v1.2.2-2026-10-02T08-10-54.130Z",
+  "createdAt": "2026-10-02T15:00:01.968Z",
+  "frozenAt": null
+}

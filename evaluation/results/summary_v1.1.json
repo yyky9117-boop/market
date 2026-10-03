@@ -1,0 +1,340 @@
+{
+  "datasetVersion": "evaluation_v1.1",
+  "businessVersion": "v1.2.2",
+  "runId": "v1.2.2-2026-10-02T08-10-54.130Z",
+  "status": "provisional",
+  "totalCases": 60,
+  "decisionQuality": {
+    "completedDecisionAccuracy": {
+      "numerator": 48,
+      "denominator": 57,
+      "value": 0.8421052631578947
+    },
+    "endToEndCorrectRate": {
+      "numerator": 48,
+      "denominator": 60,
+      "value": 0.8
+    },
+    "originalGoldenCompletedAccuracy": {
+      "numerator": 46,
+      "denominator": 57,
+      "value": 0.8070175438596491
+    },
+    "originalGoldenEndToEndCorrectRate": {
+      "numerator": 46,
+      "denominator": 60,
+      "value": 0.7666666666666667
+    },
+    "byCategory": {
+      "strong": {
+        "completedAccuracy": {
+          "numerator": 19,
+          "denominator": 20,
+          "value": 0.95
+        },
+        "endToEndCorrectRate": {
+          "numerator": 19,
+          "denominator": 20,
+          "value": 0.95
+        }
+      },
+      "medium": {
+        "completedAccuracy": {
+          "numerator": 3,
+          "denominator": 9,
+          "value": 0.3333333333333333
+        },
+        "endToEndCorrectRate": {
+          "numerator": 3,
+          "denominator": 10,
+          "value": 0.3
+        }
+      },
+      "weak": {
+        "completedAccuracy": {
+          "numerator": 7,
+          "denominator": 8,
+          "value": 0.875
+        },
+        "endToEndCorrectRate": {
+          "numerator": 7,
+          "denominator": 10,
+          "value": 0.7
+        }
+      },
+      "safety": {
+        "completedAccuracy": {
+          "numerator": 10,
+          "denominator": 10,
+          "value": 1
+        },
+        "endToEndCorrectRate": {
+          "numerator": 10,
+          "denominator": 10,
+          "value": 1
+        }
+      },
+      "sensitive": {
+        "completedAccuracy": {
+          "numerator": 9,
+          "denominator": 10,
+          "value": 0.9
+        },
+        "endToEndCorrectRate": {
+          "numerator": 9,
+          "denominator": 10,
+          "value": 0.9
+        }
+      }
+    },
+    "falseAcceptCaseIds": [
+      "EV027",
+      "EV028",
+      "EV030",
+      "EV035"
+    ],
+    "falseRejectCaseIds": [
+      "EV018",
+      "EV022",
+      "EV023",
+      "EV024",
+      "EV055"
+    ],
+    "fitLevelAccuracy": {
+      "numerator": 23,
+      "denominator": 33,
+      "value": 0.696969696969697
+    },
+    "fitLevelCoverage": {
+      "numerator": 33,
+      "denominator": 60,
+      "value": 0.55
+    },
+    "goldenPendingCaseIds": [
+      "EV023",
+      "EV027",
+      "EV028",
+      "EV030",
+      "EV054",
+      "EV060"
+    ]
+  },
+  "safety": {
+    "recall": {
+      "numerator": 10,
+      "denominator": 10,
+      "value": 1
+    },
+    "falsePositiveRate": {
+      "numerator": 2,
+      "denominator": 47,
+      "value": 0.0425531914893617
+    },
+    "sensitiveTopicAccuracy": {
+      "numerator": 9,
+      "denominator": 10,
+      "value": 0.9
+    },
+    "sensitiveDetectionAccuracy": {
+      "numerator": 55,
+      "denominator": 57,
+      "value": 0.9649122807017544
+    },
+    "unsafeFalseAcceptCaseIds": [],
+    "pendingSafetyCaseIds": [
+      "EV054",
+      "EV060"
+    ]
+  },
+  "contentQuality": {
+    "judgeConfirmedHallucinationRate": {
+      "numerator": 5,
+      "denominator": 23,
+      "value": 0.21739130434782608
+    },
+    "judgeHallucinationCaseIds": [
+      "EV004",
+      "EV008",
+      "EV015",
+      "EV028",
+      "EV030"
+    ],
+    "humanConfirmedHallucination": {
+      "count": 0,
+      "caseIds": [],
+      "rate": null,
+      "status": "claim_level_review_incomplete"
+    },
+    "internalDataLeakOutputRate": {
+      "numerator": 0,
+      "denominator": 69,
+      "value": 0
+    },
+    "internalDataLeakJudgeCaseIds": [],
+    "platformJudgeAverages": {
+      "weibo": {
+        "sampleSize": 23,
+        "value": 4.086956521739131
+      },
+      "xiaohongshu": {
+        "sampleSize": 23,
+        "value": 4.130434782608695
+      },
+      "douyin": {
+        "sampleSize": 23,
+        "value": 4.043478260869565
+      }
+    },
+    "wouldUseApplicableReviewed": 11,
+    "humanUsableRate": {
+      "numerator": 10,
+      "denominator": 11,
+      "value": 0.9090909090909091
+    },
+    "humanDirectUseRate": {
+      "numerator": 7,
+      "denominator": 11,
+      "value": 0.6363636363636364
+    }
+  },
+  "reliability": {
+    "pipelineCompletionRate": {
+      "numerator": 57,
+      "denominator": 60,
+      "value": 0.95
+    },
+    "executionErrorRate": {
+      "numerator": 3,
+      "denominator": 60,
+      "value": 0.05
+    },
+    "executionErrorCaseIds": [
+      "EV021",
+      "EV038",
+      "EV039"
+    ],
+    "timeoutCount": 0,
+    "invalidJsonCount": 0,
+    "analysisErrorCount": 1,
+    "unclassifiedOrResponseErrorCount": 2,
+    "platformPartialFailureCount": 0,
+    "failedKnownDecisionOpportunityLoss": 1
+  },
+  "productMatching": {
+    "legacyExactSkuHitRate": {
+      "numerator": 16,
+      "denominator": 60,
+      "value": 0.26666666666666666
+    },
+    "exactSkuHitRate": {
+      "numerator": 14,
+      "denominator": 24,
+      "value": 0.5833333333333334
+    },
+    "acceptableSkuHitRate": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "acceptableLabelCoverage": {
+      "numerator": 0,
+      "denominator": 24,
+      "value": 0
+    },
+    "semanticRelevance": {
+      "sampleSize": 37,
+      "value": 3.027027027027027,
+      "source": "existing_judge_productRelevance"
+    },
+    "candidateCaseIds": [
+      "EV002",
+      "EV003",
+      "EV006",
+      "EV009",
+      "EV010",
+      "EV013",
+      "EV019",
+      "EV027"
+    ]
+  },
+  "detector": {
+    "status": "partial",
+    "reviewed": 29,
+    "total": 60,
+    "tp": 9,
+    "fp": 20,
+    "fn": null,
+    "tn": null,
+    "observedFn": 0,
+    "observedTn": 0,
+    "precision": {
+      "numerator": 9,
+      "denominator": 29,
+      "value": 0.3103448275862069
+    },
+    "recall": null,
+    "f1": null,
+    "falsePositiveRate": null,
+    "falseNegativeRate": null
+  },
+  "humanEvaluation": {
+    "completed": 29,
+    "remaining": 31,
+    "disputed": 0,
+    "confirmedCaseIds": [
+      "EV008",
+      "EV018",
+      "EV021",
+      "EV022",
+      "EV024",
+      "EV035",
+      "EV038",
+      "EV039",
+      "EV055"
+    ],
+    "notBadcaseCount": 20,
+    "rootCauseDistribution": {
+      "CONTENT_STRATEGY": 1,
+      "PRODUCT_MATCHING": 5,
+      "ENGINEERING_ERROR": 3
+    },
+    "pendingRootCaseIds": [
+      "EV008",
+      "EV018",
+      "EV021",
+      "EV022",
+      "EV024",
+      "EV035",
+      "EV038",
+      "EV039",
+      "EV055"
+    ],
+    "missingSeverityCaseIds": [
+      "EV018",
+      "EV021",
+      "EV022",
+      "EV024"
+    ]
+  },
+  "goldenCalibration": {
+    "changedCaseIds": [
+      "EV020",
+      "EV025"
+    ],
+    "pendingCaseIds": [
+      "EV023",
+      "EV027",
+      "EV028",
+      "EV030",
+      "EV054",
+      "EV060"
+    ]
+  },
+  "freeze": {
+    "ready": false,
+    "remainingHumanVerdicts": 31,
+    "pendingGolden": 6,
+    "pendingRootCauses": 9,
+    "missingSeverity": 4
+  }
+}
