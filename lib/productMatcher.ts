@@ -16,13 +16,23 @@ function splitTerms(keyword: string): string[] {
   return [...terms];
 }
 
-export function matchProducts(keyword: string | string[], products: Product[]): Product | null {
+// Retrieval aliases do not authorize calling ordinary drinking water mineral water in copy.
+const searchAliases = [
+  ["瓶装水", "矿泉水", "饮用水"],
+  ["阅读灯", "学习台灯", "台灯"],
+] as const;
+const genericTerms = new Set(["儿童", "孩子", "学生", "家庭", "日常", "食品", "生活", "用品", "产品", "便携", "户外", "运动", "健康", "学习"]);
+
+export function rankProducts(keyword: string | string[], products: Product[], limit = 3): Product[] {
   const keywords = (Array.isArray(keyword) ? keyword : [keyword])
     .map((item) => item.trim().toLocaleLowerCase())
     .filter(Boolean);
-  const normalizedKeyword = keywords.join(" ");
-  const terms = [...new Set(keywords.flatMap(splitTerms))];
-  if (!normalizedKeyword || products.length === 0) return null;
+  const expanded = [...new Set(keywords.flatMap(item => {
+    const group = searchAliases.find(group => group.some(term => item.includes(term)));
+    return group ? [item, ...group] : [item];
+  }))];
+  const terms = [...new Set(expanded.flatMap(splitTerms))].filter(term => !genericTerms.has(term));
+  if (keywords.length === 0 || products.length === 0) return [];
 
   const ranked = products
     .filter((product) => product.stock === null || product.stock === undefined || product.stock > 0)
@@ -30,15 +40,14 @@ export function matchProducts(keyword: string | string[], products: Product[]): 
       const fields = {
         name: product.name.toLocaleLowerCase(),
         subcategory: product.subcategory.toLocaleLowerCase(),
-        category: product.category.toLocaleLowerCase(),
         detail: product.detail.toLocaleLowerCase(),
       };
       let score = 0;
 
-      for (const item of keywords) {
+      for (const item of expanded) {
+        if (genericTerms.has(item)) continue;
         if (fields.name.includes(item)) score += 10;
         if (fields.subcategory.includes(item)) score += 9;
-        if (fields.category.includes(item)) score += 7;
         if (fields.detail.includes(item)) score += 4;
       }
 
@@ -46,16 +55,19 @@ export function matchProducts(keyword: string | string[], products: Product[]): 
         if (term.length < 2) continue;
         if (fields.name.includes(term)) score += 3;
         if (fields.subcategory.includes(term)) score += 3;
-        if (fields.category.includes(term)) score += 2;
         if (fields.detail.includes(term)) score += 1;
       }
 
-      // Existing sales metrics are internal ranking signals only.
-      const salesTieBreak = Math.min(product.monthlySales ?? 0, 10_000) / 10_000;
-      return { product, score, salesTieBreak };
+      // Broad categories such as 食品饮料 are not evidence that a SKU meets a need.
+      // Sales cannot make a semantically unrelated product eligible.
+      return { product, score };
     })
     .filter((candidate) => candidate.score > 0)
-    .sort((left, right) => right.score - left.score || right.salesTieBreak - left.salesTieBreak);
+    .sort((left, right) => right.score - left.score || left.product.sku.localeCompare(right.product.sku));
 
-  return ranked[0]?.product ?? null;
+  return ranked.slice(0, Math.max(0, limit)).map(candidate => candidate.product);
+}
+
+export function matchProducts(keyword: string | string[], products: Product[]): Product | null {
+  return rankProducts(keyword, products, 1)[0] ?? null;
 }

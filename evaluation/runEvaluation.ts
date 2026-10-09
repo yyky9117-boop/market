@@ -2,21 +2,8 @@ import fs from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 import productData from '../data/products.json' with { type: 'json' };
-import { analyzeNews, generatePlatformContent, planContentStrategy } from '../lib/llm';
-import { evaluateMarketingOpportunity, strategyUsesSensitiveHook } from '../lib/marketingOpportunity';
-import { matchProducts } from '../lib/productMatcher';
-import { sanitizeProductForCopy } from '../lib/productSanitizer';
-import type {
-  ContentStrategy,
-  GenerateResultItem,
-  MarketingOpportunityEvaluation,
-  NewsAnalysis,
-  NewsItem,
-  PlatformContents,
-  PlatformKey,
-  PlatformStatuses,
-  Product,
-} from '../lib/types';
+import { analyzeMarketingNews } from '../lib/marketingPipeline';
+import type { GenerateResultItem, NewsItem, Product } from '../lib/types';
 import { evaluateCase, summarize } from './machineMetrics.mjs';
 import { buildBadcasesCsv, buildBacklogCsv } from './resultArtifacts.mjs';
 import { EVALUATION_JUDGE_PROMPT } from './prompts/judgePrompt';
@@ -42,10 +29,6 @@ type EvaluationCase = {
 };
 
 const products = productData as Product[];
-const platforms: PlatformKey[] = ['weibo', 'xiaohongshu', 'douyin'];
-const emptyContent = (): PlatformContents => ({ weibo: null, xiaohongshu: null, douyin: null });
-const emptyStatuses = (): PlatformStatuses => ({ weibo: 'not_generated', xiaohongshu: 'not_generated', douyin: 'not_generated' });
-
 function requiredEnv(name: string): string {
   const value = process.env[name];
   if (!value) throw new Error(`${name} is required.`);
@@ -107,67 +90,8 @@ async function runCase(caseData: EvaluationCase, version: string, skipJudge: boo
     url: `evaluation://${caseData.id}`,
     source: 'Fixed offline evaluation fixture',
   };
-  let actual: GenerateResultItem = {
-    id: caseData.id,
-    news,
-    analysis: {
-      marketingSafe: false, riskLevel: 'high', riskReason: '', sensitiveTopic: false, sensitiveType: null,
-      opportunity: '', scene: '', consumerNeed: '', productKeyword: [], reason: 'Pipeline has not completed.',
-    },
-    product: null,
-    opportunityEvaluation: null,
-    contentStrategy: null,
-    platformContents: emptyContent(),
-    platformStatuses: emptyStatuses(),
-  };
-  let error: string | null = null;
-
-  try {
-    const analysis: NewsAnalysis = await analyzeNews(news);
-    const selected = analysis.productKeyword.length ? matchProducts(analysis.productKeyword, products) : null;
-    actual = { ...actual, analysis, product: selected };
-    if (analysis.marketingSafe && selected) {
-      const sanitized = sanitizeProductForCopy(selected);
-      const opportunity = await evaluateMarketingOpportunity({ news, analysis, product: sanitized });
-      actual = { ...actual, opportunityEvaluation: opportunity };
-      if (opportunity.shouldGenerate) {
-        const strategy: ContentStrategy = await planContentStrategy(news, analysis, sanitized, opportunity);
-        if (strategyUsesSensitiveHook(analysis, Object.values(strategy).join(' '))) {
-          actual = {
-            ...actual,
-            opportunityEvaluation: {
-              ...opportunity,
-              productFitScore: Math.min(opportunity.productFitScore, 59),
-              fitLevel: 'weak',
-              shouldGenerate: false,
-              fitReason: 'Content strategy triggered the existing sensitive-topic safety gate.',
-            },
-          };
-        } else {
-          actual = { ...actual, contentStrategy: strategy };
-          const context = { news, analysis, product: sanitized, opportunityEvaluation: opportunity, contentStrategy: strategy };
-          const outcomes = await Promise.allSettled(platforms.map((platform) => generatePlatformContent(platform, context)));
-          const content = emptyContent();
-          const statuses = emptyStatuses();
-          const platformErrors: Partial<Record<PlatformKey, string>> = {};
-          outcomes.forEach((outcome, index) => {
-            const platform = platforms[index];
-            if (outcome.status === 'fulfilled') {
-              (content as Record<PlatformKey, unknown>)[platform] = outcome.value;
-              statuses[platform] = 'success';
-            } else {
-              statuses[platform] = 'failed';
-              platformErrors[platform] = outcome.reason instanceof Error ? outcome.reason.message : String(outcome.reason);
-            }
-          });
-          actual = { ...actual, platformContents: content, platformStatuses: statuses, ...(Object.keys(platformErrors).length ? { platformErrors } : {}) };
-        }
-      }
-    }
-  } catch (caught) {
-    error = caught instanceof Error ? caught.message : String(caught);
-    actual = { ...actual, error, platformContents: emptyContent(), platformStatuses: emptyStatuses() };
-  }
+  const actual = await analyzeMarketingNews(news, products, caseData.id);
+  const error = actual.executionStatus === 'error' ? actual.error ?? 'Pipeline error' : null;
 
   const latencyMs = Math.round(performance.now() - start);
   const record: Record<string, unknown> = {

@@ -28,6 +28,10 @@ export interface MarketingOpportunityEvaluation {
   shouldGenerate: boolean;
   fitReason: string;
   relationshipPath: string[];
+  newsEvidence?: string[];
+  requiresInventedScene?: boolean;
+  modelProductFitScore?: number;
+  guardReasons?: string[];
 }
 
 export interface ContentStrategy {
@@ -120,6 +124,10 @@ export interface GenerateResultItem {
   platformErrors?: PlatformErrors;
   error?: string;
   failureType?: "analysis" | "product" | "opportunity" | "strategy";
+  errorCode?: string;
+  executionStatus?: "success" | "partial" | "error";
+  decisionStatus?: "generate" | "reject" | "unknown";
+  productCandidatesEvaluated?: Array<{ sku: string; modelScore: number; finalScore: number; shouldGenerate: boolean; guardReasons: string[] }>;
 }
 
 export interface GenerateResponse {

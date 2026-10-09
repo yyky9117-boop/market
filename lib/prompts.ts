@@ -34,6 +34,8 @@ export function buildNewsAnalysisPrompt(news: NewsItem): string {
 
 字段：marketingSafe:boolean、riskLevel:low|medium|high、riskReason:string、sensitiveTopic:boolean、sensitiveType:string|null、opportunity:string、scene:string、consumerNeed:string、productKeyword:string[]、reason:string。
 没有合理需求时 consumerNeed 和 productKeyword 返回空值。
+空值必须使用 consumerNeed=""、productKeyword=[]，其他字符串字段仍需返回字符串；不能省略字段或用 null 替代字符串。
+新闻没有明确的消费场景时，不得凭“热度带来兴趣”创造消费行为。例如获奖名单与评审讨论不等于观众准备观影零食；只有新闻确实提到观赛、观影准备等场景，才可分析相应需求。
 
 示例：
 {"marketingSafe":true,"riskLevel":"low","riskReason":"","sensitiveTopic":false,"sensitiveType":null,"opportunity":"旅途便携饮食","scene":"旅行途中","consumerNeed":"便携饮食","productKeyword":["方便食品"],"reason":"旅游场景会增加便携饮食需求"}
@@ -65,12 +67,15 @@ export function marketingOpportunityPrompt(
 高温天气 → 补水 → 饮用水：strong。国庆旅行 → 随身充电 → 充电宝：strong。体育赛事 → 家庭观赛 → 零食：medium/strong。开学季 → 儿童注意力 → 家庭情绪 → 家用设备 → 电池：weak。
 
 新闻若涉及医疗、疾病、心理健康或儿童健康，不得将这些问题作为普通商品营销钩子。若商品关联依赖此类议题，应判 weak 并停止生成。
+敏感新闻中的独立日常场景可以评估，例如新闻明确提到合理照明，可用“书桌阅读 → 照明需求 → 台灯”，不因“学生、学习、家长”这些词自动拒绝。禁止承诺预防或治疗近视、借筛查结果制造焦虑。
+不得把获奖名单、市场涨跌、航天成果等信息自行扩展为观影、聚餐、护肤等新闻没有提供的消费场景。商品存在于目录中不代表需求成立。
+newsEvidence 必须引用新闻标题或摘要中支持消费场景的原文片段（不是分析器自己的推测）。天气等直接生活需求可以由原文中的天气场景推导；仅引用“获奖名单”不能证明观影零食需求。requiresInventedScene 标明是否必须补充新闻未提供的行为才能成立；若是则判 weak。
 
 # 评分与输出
 
 productFitScore 为 0–100 整数：80–100 strong，60–79 medium，0–59 weak。低于 60 时 shouldGenerate 必须为 false。不要因为商品已匹配就默认值得生成。
 
-只输出 JSON：{"productFitScore":0,"fitLevel":"weak","shouldGenerate":false,"fitReason":"","relationshipPath":[]}`;
+只输出 JSON：{"productFitScore":0,"fitLevel":"weak","shouldGenerate":false,"fitReason":"","relationshipPath":[],"newsEvidence":[],"requiresInventedScene":true}`;
 }
 
 export function contentStrategyPrompt(
@@ -95,6 +100,9 @@ export function contentStrategyPrompt(
 audience（主要写给谁）、scene（具体场景）、consumerPainPoint（真实问题）、productRole（商品如何解决问题）、contentAngle（内容切入角度）、coreMessage（用户应记住什么）、toneHint（表达语气）。
 
 不要制造新的需求或复杂逻辑。不要把疾病、心理健康、儿童健康等严肃议题作为普通商品营销情绪钩子。商品出现必须自然，用户一眼能理解。
+优先沿用新闻已出现的实际任务，先说明日常操作，再以商品详情中明确支持的用途带出商品；不要为制造痛点而虚构风险、焦虑或购买理由。
+新闻仅说频次增加时不能写“翻倍”；“浓缩”不自动证明省液、省空间、去除异味或防止发黄。商品详情没有用量说明时，不得杜撰“少量即可”等操作要求。无法证明的效果和数字不要进入 productRole、contentAngle 或 coreMessage。
+学生书桌照明等中性场景可保留，但不能使用视力筛查、疾病、诊断或儿童心理问题作为营销钩子，也不能作治疗或预防承诺。
 
 只输出 JSON：{"audience":"","scene":"","consumerPainPoint":"","productRole":"","contentAngle":"","coreMessage":"","toneHint":""}`;
 }
@@ -137,6 +145,7 @@ ${JSON.stringify(context.product, null, 2)}
 - 内容策略是唯一营销角度。不得重新解释或扩展新闻与商品的关联，不得改变 audience、scene、consumerPainPoint、productRole、contentAngle 和 coreMessage。
 - 只按策略呈现商品，不得引入策略之外的疾病、心理健康或儿童问题作为情绪钩子。
 - 只使用输入提供的商品名称、售价和详情，不得编造规格、功能、优惠、销量、认证或使用效果。
+- 策略不是事实来源：如果策略含有新闻或商品详情不能支持的效果、数字或用量要求，应省略这些内容，不能复制或扩大。“频次增加”不等于“翻倍”，“浓缩”不等于省液、省收纳空间或避免发黄。
 - 不得声称自己亲身使用、购买或体验过商品。
 - 禁止出现 SKU、成本价、毛利率、退货率、月销售额、内部运营指标和具体库存量。
 - 只输出要求的 JSON，不要输出额外解释。`;
