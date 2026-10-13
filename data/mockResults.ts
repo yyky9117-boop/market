@@ -10,6 +10,37 @@ function findProduct(subcategory: string): Product {
   throw new Error("商品目录为空，请先从商品 Excel 生成 data/products.json。");
 }
 
+function noMatchExample(event: string, reason: string): GenerateResultItem {
+  return {
+    id: "1",
+    news: {
+      title: `${event}相关话题（演示案例）`,
+      brief: "该条为 Mock 演示资料，用于展示商品关联不足时的处理结果。",
+      source: "Mock 演示 · 无自然商品关联",
+      url: "",
+    },
+    analysis: {
+      marketingSafe: true,
+      riskLevel: "low",
+      riskReason: "",
+      sensitiveTopic: false,
+      sensitiveType: null,
+      opportunity: "",
+      scene: `${event}热点讨论`,
+      consumerNeed: "",
+      productKeyword: [],
+      reason,
+    },
+    product: null,
+    opportunityEvaluation: null,
+    contentStrategy: null,
+    platformContents: { weibo: null, xiaohongshu: null, douyin: null },
+    platformStatuses: { weibo: "not_generated", xiaohongshu: "not_generated", douyin: "not_generated" },
+    executionStatus: "success",
+    decisionStatus: "reject",
+  };
+}
+
 function createItem(
   id: string,
   event: string,
@@ -72,9 +103,9 @@ function createItem(
       },
       xiaohongshu: {
         contentAngle: contentStrategy?.contentAngle ?? marketingAngle,
-        title: `${consumerNeed}怎么准备？从一个小场景开始`,
-        hook: `${contentStrategy?.scene ?? event}时，可以先留意一个实际的小需求：${contentStrategy?.consumerPainPoint ?? consumerNeed}。`,
-        content: `${contentStrategy?.scene ?? event}中，${contentStrategy?.consumerPainPoint ?? consumerNeed}都值得按实际情况提前想一想。\n\n${product.name}可以作为一个选择，${product.detail}。${contentStrategy?.productRole ?? `如果需要${consumerNeed}，可以了解商品信息`}。\n\n是否需要准备，还是按自己的行程和需要来安排。你会提前检查哪些小事？`,
+        title: `${event}清单里，别漏了${consumerNeed}`,
+        hook: `开始准备${event}时，先看看${consumerNeed}有没有真正安排好。`,
+        content: `把需要的东西写进清单，比临出门再找更从容。${contentStrategy?.scene ?? event}，可以先确认自己会在哪里、什么时候用到。\n\n如果确实需要${consumerNeed}，${product.name}是一种选择。商品资料显示：${product.detail}\n\n根据自己的行程和人数准备即可，别为了赶热点多买。`,
         tags: [event, consumerNeed, "生活方式", "出行准备"],
         coverText: `${consumerNeed}准备思路`,
         imagePrompt: `一张自然简约的小红书生活方式摄影。主体为${product.name}，放在与${event}相关的真实生活场景中；采用干净留白构图、柔和自然光和轻松日常氛围，商品以真实包装自然融入画面，不添加促销文字，不展示任何经营数据。`,
@@ -105,33 +136,7 @@ export function getMockResults(query: string): GenerateResultItem[] {
   const event = query.trim();
 
   if (/无商品匹配|无匹配商品|商品未匹配/.test(query)) {
-    return [{
-      id: "1",
-      news: {
-        title: `${event}相关热点讨论`,
-        brief: `Mock 模式下用于演示无商品匹配状态的${event}新闻摘要。`,
-        source: "Mock 演示 · 状态示例",
-        url: "",
-      },
-      analysis: {
-        marketingSafe: true,
-        riskLevel: "low",
-        riskReason: "",
-        sensitiveTopic: false,
-        sensitiveType: null,
-        opportunity: "",
-        scene: `${event}热点讨论`,
-        consumerNeed: "当前商品库中暂无对应需求商品",
-        productKeyword: ["未匹配商品"],
-        reason: "该示例用于演示商品库没有相关商品时的状态。",
-      },
-      product: null,
-      opportunityEvaluation: null,
-      contentStrategy: null,
-      platformContents: { weibo: null, xiaohongshu: null, douyin: null },
-      platformStatuses: { weibo: "not_generated", xiaohongshu: "not_generated", douyin: "not_generated" },
-      failureType: "product",
-    }];
+    return [noMatchExample(event, "当前演示目录没有预置合理的商品关联，已停止内容生成。")];
   }
 
   if (/AI技术突破|人工智能技术突破|弱关联/.test(query)) {
@@ -206,7 +211,7 @@ export function getMockResults(query: string): GenerateResultItem[] {
     }];
   }
 
-  if (/开学季.*电池|电池.*开学季/.test(query)) {
+  if (/开学季|开学/.test(query)) {
     const product = findProduct("电池");
     const result = createItem(
       "1", "开学季", "开学准备别漏了常用小设备", "开学前整理用品时，也可以顺手检查闹钟、计算器等常用设备。", "Mock 演示 · 自然商品关联",
@@ -257,6 +262,10 @@ export function getMockResults(query: string): GenerateResultItem[] {
     return [result];
   }
 
+  if (!highRisk && !/国庆|旅游|出行|露营|户外|高温|炎热|假期/.test(query)) {
+    return [noMatchExample(event, "该演示话题尚未建立自然的新闻需求与商品关系，因此没有生成营销内容。")];
+  }
+
   const first = createItem(
     "1",
     event,
@@ -279,6 +288,26 @@ export function getMockResults(query: string): GenerateResultItem[] {
     [`#${event.replace(/\s/g, "")}`, "#出行补给", "#生活小准备"],
     !highRisk,
   );
+  if (!highRisk && first.platformContents.xiaohongshu) {
+    const hotWeather = /高温|炎热/.test(event);
+    first.platformContents.xiaohongshu = hotWeather ? {
+      contentAngle: "高温天的外出补水准备",
+      title: "高温天出门，先把水放进清单",
+      hook: "外出路线可以临时改，喝水这件事最好别等到想起来才准备。",
+      content: "出门前看一眼当天要在外待多久，再把饮用水放在容易拿到的位置。\n\n商品资料显示，这款天然饮用水是 550ml 瓶装、12 瓶组合，适合户外日常饮用。需要带多少，按自己的行程安排即可。\n\n这份准备清单里，你还会放什么？",
+      tags: ["高温天气", "外出准备", "日常补水"],
+      coverText: "外出先准备好水",
+      imagePrompt: `日常外出准备场景，自然光，${first.product?.name ?? "瓶装饮用水"}与钥匙和随身包放在桌面；干净留白，不添加促销文字。`,
+    } : {
+      contentAngle: "出行前的补水清单",
+      title: "出发前，先把水放进随身清单",
+      hook: "行程排得满满当当，背包里却忘了给饮用水留位置？出发前先检查这一项。",
+      content: "安排路线时，也看看当天会在外待多久，把饮用水放在容易拿到的位置。\n\n这款天然饮用水是 550ml 瓶装、12 瓶组合，商品资料注明适合户外日常饮用。是否带上、带多少，按行程和人数安排就好。\n\n你的出行清单里，还有哪件小事容易被漏掉？",
+      tags: [event, "出行清单", "日常补水"],
+      coverText: "出发前的补水清单",
+      imagePrompt: `出行前整理随身包的日常生活场景，自然光，${first.product?.name ?? "瓶装饮用水"}与路线清单一同入镜；构图干净，有留白，不添加促销文字。`,
+    };
+  }
 
   const second = createItem(
     "2",
@@ -296,23 +325,17 @@ export function getMockResults(query: string): GenerateResultItem[] {
     [`#${event.replace(/\s/g, "")}`, "#周末出行", "#随身零食"],
     true,
   );
+  if (second.platformContents.xiaohongshu) {
+    second.platformContents.xiaohongshu = {
+      contentAngle: "户外休息时的小食准备",
+      title: "周末出门，小食先看人数和口味",
+      hook: "户外活动休息时想吃点东西，先想清楚几个人一起吃，再决定带多少。",
+      content: "把零食放进清单前，先分清是路上随手吃，还是停下来和同行的人分享。份量合适，比把背包装满更实用。\n\n商品资料显示，每日坚果混合装是 500g 组合，包含腰果、杏仁、核桃仁和果干。若想准备坚果类小食，可以按人数和口味取舍。\n\n你准备户外小食时，会先看口味还是份量？",
+      tags: [event, "户外小食", "周末清单"],
+      coverText: "周末出门的小食清单",
+      imagePrompt: `户外出行前整理背包的自然生活场景，${second.product?.name ?? "混合坚果"}与简单清单放在桌面，自然光，干净留白，不添加促销文字。`,
+    };
+  }
 
-  const third = createItem(
-    "3",
-    event,
-    `${event}相关生活消费话题持续发酵`,
-    `热点讨论也带动居家与日常备货话题，方便快捷的餐食选择获得不少关注。`,
-    "消费趋势简报",
-    "快捷方便的日常餐食",
-    "方便食品",
-    "忙碌行程或居家备餐场景中，便捷餐食能满足简单、快速的用餐需求。",
-    findProduct("方便食品"),
-    "忙碌的时候，也要好好吃一餐",
-    "计划赶不上变化时，给自己留一个简单的用餐选择。经典风味与 5 袋组合装，适合早餐、夜宵或家中常备。",
-    "日常便捷饮食",
-    [`#${event.replace(/\s/g, "")}`, "#方便快捷", "#日常备餐"],
-    true,
-  );
-
-  return highRisk ? [first] : [first, second, third];
+  return highRisk || /高温|炎热/.test(event) ? [first] : [first, second];
 }

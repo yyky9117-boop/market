@@ -4,7 +4,6 @@ import type { Product, SanitizedProduct } from "@/lib/types";
 export function sanitizeProductForCopy(product: Product): SanitizedProduct {
   return {
     name: product.name,
-    price: product.price,
     detail: product.detail,
   };
 }

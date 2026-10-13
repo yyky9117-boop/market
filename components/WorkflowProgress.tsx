@@ -9,8 +9,8 @@ export default function WorkflowProgress({ activeStep, visible }: WorkflowProgre
   return (
     <section className="workflow" aria-live="polite" aria-label="AI 工作流进度">
       <div className="workflow-heading">
-        <strong>{visible ? "AI 正在逐步分析热点" : "一条清晰的 AI 工作流"}</strong>
-        <span>{!visible ? "从热点到内容，环环相扣" : activeStep >= WORKFLOW_STEPS.length ? "分析完成 · 已生成结果" : `${Math.min(activeStep + 1, WORKFLOW_STEPS.length)} / ${WORKFLOW_STEPS.length} 正在处理`}</span>
+        <strong>{visible ? activeStep >= WORKFLOW_STEPS.length ? "本次分析流程已完成" : "AI 工作流处理中" : "一条清晰的 AI 工作流"}</strong>
+        <span>{!visible ? "从热点到内容，环环相扣" : activeStep >= WORKFLOW_STEPS.length ? "查看下方逐条判断" : `流程示意 ${Math.min(activeStep + 1, WORKFLOW_STEPS.length)} / ${WORKFLOW_STEPS.length}`}</span>
       </div>
       <div className="workflow-steps">
         {WORKFLOW_STEPS.map((step, index) => {
@@ -23,6 +23,7 @@ export default function WorkflowProgress({ activeStep, visible }: WorkflowProgre
           );
         })}
       </div>
+      <p className="workflow-scroll-hint">向右滑动查看完整流程 →</p>
     </section>
   );
 }

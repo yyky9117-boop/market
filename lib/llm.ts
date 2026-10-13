@@ -156,6 +156,12 @@ export async function generatePlatformContent<K extends PlatformKey>(
         typeof coverText !== "string" || !coverText.trim() || typeof imagePrompt !== "string" || !imagePrompt.trim()) {
         throw new Error("小红书内容缺少有效字段。");
       }
+      const compactTitle = title.replace(/\s/g, "");
+      const compactHook = hook.replace(/\s/g, "");
+      const compactContent = content.replace(/\s/g, "");
+      if (compactTitle === compactHook || compactContent.startsWith(compactHook)) {
+        throw new Error("小红书标题、开头和正文出现重复，请让开头提供新信息，并从开头之后继续正文。");
+      }
       return {
         contentAngle: contentAngle.trim(),
         title: title.trim(),

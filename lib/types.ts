@@ -46,7 +46,6 @@ export interface ContentStrategy {
 
 export interface SanitizedProduct {
   name: string;
-  price: number | null;
   detail: string;
 }
 

@@ -26,7 +26,7 @@ export default function CopySection({
   failureType?: "analysis" | "product" | "opportunity" | "strategy";
   opportunityRejected: boolean;
 }) {
-  const [active, setActive] = useState<PlatformKey>("weibo");
+  const [active, setActive] = useState<PlatformKey>(() => statuses.xiaohongshu === "success" ? "xiaohongshu" : statuses.weibo === "success" ? "weibo" : statuses.douyin === "success" ? "douyin" : "xiaohongshu");
   const [copied, setCopied] = useState("");
 
   async function copyText(key: string, text: string) {
@@ -56,7 +56,11 @@ export default function CopySection({
 
   return (
     <section className="card-section copy-section">
-      <div className="section-label"><span className="label-icon">✎</span>多平台营销内容</div>
+      <div className="preview-intro">
+        <span>05 / PLATFORM OUTPUT</span>
+        <h3>多平台内容预览</h3>
+        <p>同一内容策略，按平台习惯分别表达。复制前请核对新闻与商品事实。</p>
+      </div>
       <div className="platform-tabs" role="tablist" aria-label="选择内容平台">
         {tabs.map((tab) => <button
           key={tab.key}
@@ -65,8 +69,17 @@ export default function CopySection({
           type="button"
           role="tab"
           aria-selected={active === tab.key}
+          tabIndex={active === tab.key ? 0 : -1}
           aria-controls={`${tab.key}-panel`}
           onClick={() => setActive(tab.key)}
+          onKeyDown={(event) => {
+            if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+            event.preventDefault();
+            const index = tabs.findIndex((entry) => entry.key === tab.key);
+            const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+            setActive(tabs[next].key);
+            event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('button[role="tab"]')[next]?.focus();
+          }}
         >
           {tab.label}{tabStatus(tab.key) && <small className={`platform-status ${statuses[tab.key]}`}>{tabStatus(tab.key)}</small>}
         </button>)}
@@ -75,8 +88,10 @@ export default function CopySection({
         {status === "loading" ? <p className="copy-error">正在生成该平台内容…</p>
           : status === "failed" ? <p className="copy-error">{errors[active] ?? "生成失败，请稍后重试。"}</p>
             : status === "not_generated" ? <div className="platform-empty">
-              {!safe || failureType === "analysis"
-                  ? <><strong>不建议商业营销</strong><span>热点风险较高或分析未完成，已停止生成所有平台内容。</span></>
+              {failureType === "analysis"
+                  ? <><strong>新闻分析失败</strong><span>尚未完成营销安全判断，因此未生成平台内容。请稍后重试。</span></>
+                  : !safe
+                    ? <><strong>不建议商业营销</strong><span>热点风险较高，已停止生成所有平台内容。</span></>
                   : !productAvailable || failureType === "product"
                     ? <><strong>当前商品库暂无适合该消费场景的商品</strong><span>已跳过平台内容生成。</span></>
                     : opportunityRejected
@@ -92,6 +107,11 @@ export default function CopySection({
                   <div className="platform-actions">{copyButton("weibo", `${contents.weibo.title}\n\n${contents.weibo.content}\n\n${contents.weibo.hashtags.join(" ")}`, "复制微博文案")}</div>
                 </>
                 : active === "xiaohongshu" && contents.xiaohongshu ? <>
+                    <div className="xhs-cover-preview" aria-label={`小红书封面排版示意：${contents.xiaohongshu.coverText}`}>
+                      <span>小红书封面 · 排版示意</span>
+                      <strong>{contents.xiaohongshu.coverText}</strong>
+                      <small>{contents.xiaohongshu.contentAngle}</small>
+                    </div>
                     <div className="content-angle">{contents.xiaohongshu.contentAngle}</div>
                     <h4 className="copy-headline">{contents.xiaohongshu.title}</h4>
                     <div className="xiaohongshu-hook"><span>开篇 Hook</span>{contents.xiaohongshu.hook}</div>

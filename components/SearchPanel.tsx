@@ -3,18 +3,19 @@
 interface SearchPanelProps {
   query: string;
   busy: boolean;
+  compact: boolean;
   onQueryChange: (value: string) => void;
   onSubmit: () => void;
 }
 
-const suggestions = ["国庆旅游", "高温天气", "开学季", "户外露营"];
+const suggestions = ["国庆旅游", "高温天气", "开学季", "户外露营", "新能源汽车"];
 
-export default function SearchPanel({ query, busy, onQueryChange, onSubmit }: SearchPanelProps) {
+export default function SearchPanel({ query, busy, compact, onQueryChange, onSubmit }: SearchPanelProps) {
   return (
-    <section className="hero">
-      <div className="eyebrow"><span aria-hidden="true">✦</span> 从实时热点，到商品营销灵感</div>
-      <h1>让每个热点，<span>都成为增长机会</span></h1>
-      <p>捕捉热点，发现商品机会，<br className="sm:hidden" />让 AI 完成从热点到营销内容的全过程。</p>
+    <section className={`hero${compact ? " compact" : ""}`}>
+      <div className="eyebrow"><span aria-hidden="true">✦</span> AI COMMERCE INTELLIGENCE / 热点营销工作台</div>
+      <h1>热点背后，<span>先找到值得写的机会。</span></h1>
+      <p>从新闻事实出发，验证需求与商品的关系，再生成真正适合平台的内容。</p>
       <form className="search-box" onSubmit={(event) => { event.preventDefault(); onSubmit(); }}>
         <input
           aria-label="热点关键词"
@@ -27,12 +28,12 @@ export default function SearchPanel({ query, busy, onQueryChange, onSubmit }: Se
           {busy ? <><span className="spinner" />分析中</> : <>开始分析 <span aria-hidden="true">→</span></>}
         </button>
       </form>
-      <div className="suggestions">
+      {!compact && <div className="suggestions">
         <span>试试这些：</span>
         {suggestions.map((item) => (
           <button className="suggestion" key={item} type="button" onClick={() => onQueryChange(item)}>{item}</button>
         ))}
-      </div>
+      </div>}
     </section>
   );
 }

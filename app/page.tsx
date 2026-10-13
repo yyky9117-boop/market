@@ -5,10 +5,19 @@ import Header from "@/components/Header";
 import MarketingCard from "@/components/MarketingCard";
 import SearchPanel from "@/components/SearchPanel";
 import WorkflowProgress from "@/components/WorkflowProgress";
-import type { GenerateResponse } from "@/lib/types";
+import type { GenerateResponse, GenerateResultItem } from "@/lib/types";
 import { WORKFLOW_STEPS } from "@/lib/types";
 
-const examples = ["国庆旅游", "高温天气", "开学季", "新能源汽车", "户外露营"];
+function caseState(item: GenerateResultItem): { label: string; tone: string } {
+  if (item.executionStatus === "error") return { label: "分析未完成", tone: "error" };
+  if (!item.analysis.marketingSafe) return { label: "高风险 · 已停止", tone: "stopped" };
+  if (!item.product) return { label: "暂无适合商品", tone: "stopped" };
+  if (item.opportunityEvaluation && !item.opportunityEvaluation.shouldGenerate) {
+    return { label: "弱关联 · 已停止", tone: "stopped" };
+  }
+  const count = Object.values(item.platformStatuses).filter((status) => status === "success").length;
+  return count > 0 ? { label: `${count} 个平台可用`, tone: "ready" } : { label: "内容未生成", tone: "error" };
+}
 
 export default function HomePage() {
   const [query, setQuery] = useState("");
@@ -16,6 +25,7 @@ export default function HomePage() {
   const [activeStep, setActiveStep] = useState(-1);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const runId = useRef(0);
 
   async function generate() {
@@ -46,6 +56,7 @@ export default function HomePage() {
       await progress;
       if (runId.current === currentRun) {
         setResult(data as GenerateResponse);
+        setSelectedIndex(0);
         setActiveStep(WORKFLOW_STEPS.length);
       }
     } catch (caught) {
@@ -59,29 +70,65 @@ export default function HomePage() {
     }
   }
 
+  const readyCount = result?.items.filter((item) => Object.values(item.platformStatuses).some((status) => status === "success")).length ?? 0;
+  const errorCount = result?.items.filter((item) => item.executionStatus === "error").length ?? 0;
+  const stoppedCount = (result?.items.length ?? 0) - readyCount - errorCount;
+  const selectedItem = result?.items[selectedIndex] ?? result?.items[0];
+
   return (
     <div className="app-shell">
       <Header mode={result?.mode ?? null} newsMode={result?.newsMode ?? "mock"} busy={busy} />
       <main className="main">
-        <SearchPanel query={query} busy={busy} onQueryChange={setQuery} onSubmit={generate} />
+        <SearchPanel query={query} busy={busy} compact={Boolean(result) && !busy} onQueryChange={setQuery} onSubmit={generate} />
         <WorkflowProgress activeStep={activeStep} visible={busy || Boolean(result)} />
         {error && <div className="error-banner" role="alert">{error}</div>}
 
         {result ? <section className="results" aria-live="polite">
           <div className="results-head">
             <div>
-              <div className="results-title"><h2>热点分析结果</h2><span className="count">{result.items.length} 条新闻</span></div>
-              <p className="results-subtitle">围绕「{result.query}」整理出的热点、需求与商品灵感</p>
+              <div className="results-kicker">ANALYSIS REPORT / 热点机会</div>
+              <div className="results-title"><h2>「{result.query}」分析报告</h2><span className="count">{result.items.length} 条新闻</span></div>
+              <p className="results-subtitle">逐条判断新闻是否适合营销，再决定商品与内容方向。</p>
             </div>
-            <span className="sort-label">分析模式：<strong>{result.mode === "mock" ? "Mock 演示" : result.newsMode === "live" ? "真实 LLM · 实时新闻" : "真实 LLM · Mock 新闻"}</strong></span>
+            <span className="sort-label">数据来源 <strong>{result.mode === "mock" ? "Mock 演示" : result.newsMode === "live" ? "真实模型 · 实时搜索" : "真实模型 · 演示新闻"}</strong></span>
           </div>
           {result.warning && <div className="warning-banner" role="status">{result.warning}</div>}
-          <div className="card-grid">{result.items.map((item) => <MarketingCard key={item.id} item={item} mode={result.mode} />)}</div>
+          <div className="result-overview" aria-label="本次分析概览">
+            <div className="overview-stat"><span>新闻样本</span><strong>{result.items.length.toString().padStart(2, "0")}</strong><small>逐条独立判断</small></div>
+            <div className="overview-stat ready"><span>可用内容</span><strong>{readyCount.toString().padStart(2, "0")}</strong><small>至少一个平台生成成功</small></div>
+            <div className="overview-stat"><span>谨慎停止</span><strong>{stoppedCount.toString().padStart(2, "0")}</strong><small>风险、弱关联或无商品</small></div>
+            <div className="overview-stat"><span>分析异常</span><strong>{errorCount.toString().padStart(2, "0")}</strong><small>单条失败不影响其他新闻</small></div>
+          </div>
+          <div className="result-workspace">
+            <aside className="case-rail" aria-label="新闻分析列表">
+              <div className="case-rail-head"><span>热点列表</span><span>{result.items.length} ITEMS</span></div>
+              <div className="case-list">
+                {result.items.map((item, index) => {
+                  const state = caseState(item);
+                  return <button
+                    className={`case-item${selectedItem?.id === item.id ? " selected" : ""}`}
+                    type="button"
+                    key={item.id}
+                    aria-pressed={selectedItem?.id === item.id}
+                    onClick={() => setSelectedIndex(index)}
+                  >
+                    <span className="case-item-top"><span>NEWS {String(index + 1).padStart(2, "0")}</span><span className={`case-state ${state.tone}`}>{state.label}</span></span>
+                    <strong>{item.news.title}</strong>
+                    <span className="case-item-meta">{item.analysis.consumerNeed || "暂无明确消费需求"}</span>
+                  </button>;
+                })}
+              </div>
+              <p className="case-rail-note">点击热点查看完整判断链路。关联分数为模型估计，并非销售预测。</p>
+            </aside>
+            {selectedItem && <MarketingCard key={selectedItem.id} item={selectedItem} mode={result.mode} />}
+          </div>
         </section> : !busy && !error ? <section className="empty-state">
-          <div className="empty-graphic" aria-hidden="true">⌕</div>
-          <strong>从一个热点，开始发现商品机会</strong>
-          输入你关注的话题，AI 将逐步分析消费需求并生成营销灵感。
-          <div className="hashtags" style={{ justifyContent: "center", marginTop: 15 }}>{examples.map((item) => <button className="suggestion" key={item} type="button" onClick={() => setQuery(item)}>{item}</button>)}</div>
+          <div className="empty-heading"><span>HOW IT WORKS</span><strong>从新闻事实走到可用内容</strong><p>先判断是否值得写，再决定怎么写。每一步都有可查看的依据。</p></div>
+          <div className="empty-steps">
+            <div><span>01 / DISCOVER</span><strong>发现热点</strong><p>搜索相关新闻，保留标题、摘要和来源。</p></div>
+            <div><span>02 / DECIDE</span><strong>判断机会</strong><p>核对消费需求、商品关联和营销风险。</p></div>
+            <div><span>03 / CREATE</span><strong>生成内容</strong><p>共用内容策略，分别写成三种平台形式。</p></div>
+          </div>
         </section> : null}
 
         <p className="footer-note">AI 生成内容仅供创意参考，请结合实际商品信息审核后使用。</p>
